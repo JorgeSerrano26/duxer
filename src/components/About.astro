@@ -1,0 +1,128 @@
+---
+---
+
+<section id="nosotros" class="about" aria-label="Sobre DUXER">
+  <div class="about-grid">
+    <!-- Left: Text -->
+    <div class="about-text reveal">
+      <h2 class="about-heading">
+        Tu garantía<br />
+        en atención<br />
+        y calidad
+      </h2>
+
+      <div class="about-divider"></div>
+
+      <p class="about-body">
+        Como empresa orgullosamente argentina, en DUXER brindamos equipos de
+        lavandería industrial que combinan calidad, accesibilidad y servicio
+        excepcional.
+      </p>
+
+      <p class="about-body">
+        Ofrecemos soluciones completas que respalden el desempeño y la
+        continuidad de tu operación.
+      </p>
+    </div>
+
+    <!-- Right: Real photo of industrial washing machines -->
+    <div class="about-image">
+      <img
+        src="/lavandery.png"
+        alt="Equipos de lavandería industrial DUXER — fila de lavadoras de barrera sanitaria"
+        width="700"
+        height="550"
+        loading="lazy"
+        class="about-img"
+      />
+      <div class="about-img-overlay" aria-hidden="true"></div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .about {
+    background: #080808;
+    overflow: hidden;
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 520px;
+  }
+
+  .about-text {
+    padding: 5rem clamp(2rem, 4vw, 5rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .about-heading {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: clamp(2.75rem, 5vw, 4.5rem);
+    line-height: 0.95;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    margin-bottom: 1.75rem;
+  }
+
+  .about-divider {
+    width: 36px;
+    height: 2px;
+    background: rgba(200, 168, 107, 0.6);
+    margin-bottom: 1.75rem;
+  }
+
+  .about-body {
+    font-family: 'Barlow', sans-serif;
+    font-size: 0.9rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.5);
+    margin-bottom: 1rem;
+    max-width: 380px;
+  }
+
+  .about-image {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .about-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    min-height: 440px;
+  }
+
+  /* Subtle left fade so it blends with the text panel */
+  .about-img-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to right,
+      rgba(8, 8, 8, 0.55) 0%,
+      transparent 40%
+    );
+  }
+
+  @media (max-width: 768px) {
+    .about-grid {
+      grid-template-columns: 1fr;
+    }
+    .about-image {
+      order: -1;
+      height: 260px;
+    }
+    .about-img {
+      min-height: 260px;
+    }
+    .about-text {
+      padding: 3rem 1.5rem;
+    }
+  }
+</style>

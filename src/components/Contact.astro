@@ -1,0 +1,300 @@
+---
+const siteKey = import.meta.env.PUBLIC_RECAPTCHA_SITE_KEY ?? '';
+---
+
+<section id="contacto" class="contact" aria-label="Formulario de contacto">
+  <div class="contact-inner">
+    <!-- Header -->
+    <header class="contact-header reveal">
+      <h2 class="contact-heading">Contáctanos</h2>
+    </header>
+
+    <!-- Form -->
+    <form
+      id="contact-form"
+      class="contact-form reveal"
+      novalidate
+      aria-label="Formulario de solicitud de información"
+    >
+      <div class="field">
+        <label for="email" class="field-label">Email</label>
+        <input type="email" id="email" name="email" placeholder="tu@email.com"
+          class="field-input" autocomplete="email" required aria-required="true"
+          aria-describedby="email-err"/>
+        <p id="email-err" class="field-err" role="alert" aria-live="polite"></p>
+      </div>
+
+      <div class="field">
+        <label for="name" class="field-label">Nombre</label>
+        <input type="text" id="name" name="name" placeholder="Tu nombre completo"
+          class="field-input" autocomplete="name" required aria-required="true"
+          aria-describedby="name-err"/>
+        <p id="name-err" class="field-err" role="alert" aria-live="polite"></p>
+      </div>
+
+      <div class="field">
+        <label for="company" class="field-label">Nombre de la compañía</label>
+        <input type="text" id="company" name="company" placeholder="Tu empresa"
+          class="field-input" autocomplete="organization"
+          aria-describedby="company-err"/>
+        <p id="company-err" class="field-err" role="alert" aria-live="polite"></p>
+      </div>
+
+      <div class="field">
+        <label for="message" class="field-label">Mensaje</label>
+        <textarea id="message" name="message"
+          placeholder="Cuéntanos sobre tu proyecto o necesidad..."
+          class="field-textarea" rows="4" required aria-required="true"
+          aria-describedby="message-err"></textarea>
+        <p id="message-err" class="field-err" role="alert" aria-live="polite"></p>
+      </div>
+
+      <input type="hidden" id="recaptcha-token" name="recaptchaToken"/>
+
+      <div id="form-msg" class="form-msg" role="status" aria-live="polite"></div>
+
+      <button type="submit" id="submit-btn" class="submit-btn">
+        Solicitar información
+      </button>
+
+      <p class="form-note">
+        Al enviar aceptas nuestra <a href="#" class="form-note-link">Política de Privacidad</a>.
+        Sitio protegido por reCAPTCHA.
+      </p>
+    </form>
+  </div>
+</section>
+
+{siteKey && (
+  <script src={`https://www.google.com/recaptcha/api.js?render=${siteKey}`}></script>
+)}
+
+<script is:inline define:vars={{ siteKey }}>
+  const form = document.getElementById('contact-form');
+  const submitBtn = document.getElementById('submit-btn');
+  const formMsg = document.getElementById('form-msg');
+
+  function showErr(id, msg) {
+    const el = document.getElementById(id + '-err');
+    if (el) { el.textContent = msg; el.className = 'field-err' + (msg ? ' show' : ''); }
+  }
+  function clearErrors() {
+    ['email','name','company','message'].forEach(f => showErr(f, ''));
+  }
+  function isEmail(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
+
+  function validate(d) {
+    let ok = true;
+    clearErrors();
+    if (!isEmail(d.email)) { showErr('email', 'Ingresa un email válido.'); ok = false; }
+    if (d.name.length < 2) { showErr('name', 'Mínimo 2 caracteres.'); ok = false; }
+    if (d.message.length < 10) { showErr('message', 'Mínimo 10 caracteres.'); ok = false; }
+    return ok;
+  }
+
+  function setMsg(text, type) {
+    formMsg.textContent = text;
+    formMsg.className = 'form-msg show ' + type;
+  }
+
+  async function getCaptcha() {
+    if (!siteKey || typeof grecaptcha === 'undefined') return '';
+    return new Promise(res => {
+      grecaptcha.ready(() => grecaptcha.execute(siteKey, { action: 'contact' }).then(res));
+    });
+  }
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const fd = new FormData(form);
+    const d = {
+      email: (fd.get('email') || '').toString().trim(),
+      name: (fd.get('name') || '').toString().trim(),
+      company: (fd.get('company') || '').toString().trim(),
+      message: (fd.get('message') || '').toString().trim(),
+      recaptchaToken: '',
+    };
+    if (!validate(d)) return;
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Enviando...';
+    formMsg.className = 'form-msg';
+
+    try {
+      d.recaptchaToken = await getCaptcha();
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(d),
+      });
+      const result = await res.json();
+      if (res.ok && result.success) {
+        setMsg('¡Mensaje enviado! Te contactaremos a la brevedad.', 'success');
+        form.reset(); clearErrors();
+      } else {
+        const msg = result.errors
+          ? Object.values(result.errors).flat().join(' ')
+          : result.message || 'Ocurrió un error. Inténtalo nuevamente.';
+        setMsg(msg, 'error');
+      }
+    } catch {
+      setMsg('Error de conexión. Verifica tu internet.', 'error');
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Solicitar información';
+    }
+  });
+</script>
+
+<style>
+  .contact {
+    background: #f0efea;
+    padding: 5.5rem 1.5rem;
+  }
+
+  .contact-inner {
+    max-width: 540px;
+    margin: 0 auto;
+  }
+
+  .contact-header {
+    text-align: center;
+    margin-bottom: 2.75rem;
+  }
+
+  .contact-heading {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: clamp(2.5rem, 6vw, 4.25rem);
+    line-height: 1;
+    color: #0a0a0a;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+  }
+
+  .field {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .field-label {
+    font-family: 'Barlow', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(0, 0, 0, 0.35);
+    margin-bottom: 0.3rem;
+  }
+
+  .field-input,
+  .field-textarea {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    padding: 0.55rem 0;
+    font-family: 'Barlow', sans-serif;
+    font-size: 0.875rem;
+    color: #111;
+    outline: none;
+    transition: border-color 0.2s;
+    width: 100%;
+  }
+
+  .field-input::placeholder,
+  .field-textarea::placeholder {
+    color: rgba(0, 0, 0, 0.3);
+    font-size: 0.85rem;
+  }
+
+  .field-input:focus,
+  .field-textarea:focus {
+    border-bottom-color: rgba(0, 0, 0, 0.6);
+  }
+
+  .field-textarea {
+    resize: none;
+    min-height: 80px;
+  }
+
+  .field-err {
+    font-family: 'Barlow', sans-serif;
+    font-size: 0.72rem;
+    color: #c0392b;
+    margin-top: 0.25rem;
+    display: none;
+  }
+
+  .field-err.show {
+    display: block;
+  }
+
+  .form-msg {
+    padding: 0.875rem 1rem;
+    font-family: 'Barlow', sans-serif;
+    font-size: 0.85rem;
+    text-align: center;
+    display: none;
+    border-radius: 2px;
+  }
+
+  .form-msg.show {
+    display: block;
+  }
+
+  .form-msg.success {
+    background: rgba(39, 174, 96, 0.1);
+    border: 1px solid rgba(39, 174, 96, 0.3);
+    color: #1a6e3c;
+  }
+
+  .form-msg.error {
+    background: rgba(231, 76, 60, 0.08);
+    border: 1px solid rgba(231, 76, 60, 0.25);
+    color: #922b21;
+  }
+
+  .submit-btn {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: white;
+    background: #111;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 1rem 2rem;
+    cursor: pointer;
+    width: 100%;
+    transition: background 0.2s, transform 0.15s;
+    border-radius: 2px;
+  }
+
+  .submit-btn:hover:not(:disabled) {
+    background: #222;
+    transform: translateY(-1px);
+  }
+
+  .submit-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  .form-note {
+    font-family: 'Barlow', sans-serif;
+    font-size: 0.68rem;
+    color: rgba(0, 0, 0, 0.28);
+    text-align: center;
+    line-height: 1.5;
+  }
+
+  .form-note-link {
+    color: rgba(0, 0, 0, 0.45);
+    text-decoration: underline;
+  }
+</style>

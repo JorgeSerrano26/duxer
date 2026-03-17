@@ -1,0 +1,239 @@
+---
+const products = [
+  {
+    name: 'Lavado Industrial',
+    desc: 'Lavadoras de barrera sanitaria de alta capacidad, diseñadas para trabajo continuo con máxima eficiencia.',
+    specs: 'De 18 kg hasta 120 kg',
+    image: '/lavado_industrial.png',
+    alt: 'Lavadora industrial de barrera sanitaria DUXER, acero inoxidable',
+  },
+  {
+    name: 'Secado Inteligente',
+    desc: 'Secadoras industriales de alta eficiencia energética con control digital de temperatura y humedad.',
+    specs: 'Ciclos de secado optimizados',
+    image: '/secado_inteligente.png',
+    alt: 'Secadora industrial inteligente DUXER de alta eficiencia',
+  },
+  {
+    name: 'Acabado Profesional',
+    desc: 'Equipos de acabado para ropa y lencería con tecnología de última generación y resultados impecables.',
+    specs: 'Pliegue y clasificación automática',
+    image: '/acabado_profesional.png',
+    alt: 'Equipo de acabado profesional DUXER para lavandería industrial',
+  },
+  {
+    name: 'Planchado',
+    desc: 'Calandrias y planchas industriales para sábanas, manteles y uniformes con acabado perfecto.',
+    specs: 'Hasta 600 m² / hora',
+    image: '/planchado.png',
+    alt: 'Calandria industrial DUXER para planchado profesional de lencería',
+  },
+];
+---
+
+<section id="productos" class="products" aria-label="Líneas de producto">
+  <div class="products-texture" aria-hidden="true"></div>
+
+  <div class="products-inner">
+    <header class="products-header reveal">
+      <h2 class="products-heading">Líneas de producto</h2>
+      <p class="products-sub">
+        Equipos de alta calidad para cada etapa del proceso de lavandería industrial.
+      </p>
+    </header>
+
+    <div class="products-grid">
+      {products.map((p) => (
+        <article class="product-card reveal">
+          <div class="product-img-wrap">
+            <img
+              src={p.image}
+              alt={p.alt}
+              width="300"
+              height="220"
+              loading="lazy"
+              class="product-img"
+            />
+            <span class="product-badge">DUXER</span>
+          </div>
+          <div class="product-body">
+            <h3 class="product-name">{p.name}</h3>
+            <p class="product-desc">{p.desc}</p>
+            <p class="product-specs">{p.specs}</p>
+            <a href="#contacto" class="product-btn">Ver detalles</a>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .products {
+    background: #080808;
+    padding: 5.5rem 1.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .products-texture {
+    position: absolute;
+    inset: 0;
+    background-image: repeating-linear-gradient(
+      -55deg,
+      transparent,
+      transparent 6px,
+      rgba(255, 255, 255, 0.012) 6px,
+      rgba(255, 255, 255, 0.012) 12px
+    );
+    pointer-events: none;
+  }
+
+  .products-inner {
+    position: relative;
+    z-index: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .products-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .products-heading {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: clamp(1.75rem, 4vw, 2.75rem);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: white;
+    margin-bottom: 0.75rem;
+  }
+
+  .products-sub {
+    font-family: 'Barlow', sans-serif;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.38);
+    max-width: 380px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+  }
+
+  .product-card {
+    background: #131313;
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: border-color 0.3s, transform 0.3s;
+  }
+
+  .product-card:hover {
+    border-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-4px);
+  }
+
+  .product-img-wrap {
+    position: relative;
+    overflow: hidden;
+    background: #1a1a1a;
+  }
+
+  .product-img {
+    width: 100%;
+    height: 170px;
+    object-fit: contain;
+    display: block;
+    padding: 1rem;
+    transition: transform 0.5s;
+  }
+
+  .product-card:hover .product-img {
+    transform: scale(1.06);
+  }
+
+  .product-badge {
+    position: absolute;
+    top: 0.6rem;
+    left: 0.6rem;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 0.52rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(200, 168, 107, 0.8);
+    background: rgba(8, 8, 8, 0.88);
+    border: 1px solid rgba(200, 168, 107, 0.2);
+    padding: 0.18rem 0.4rem;
+  }
+
+  .product-body {
+    padding: 1rem 1.1rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  .product-name {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800;
+    font-size: 0.95rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: white;
+    margin-bottom: 0.45rem;
+  }
+
+  .product-desc {
+    font-family: 'Barlow', sans-serif;
+    font-size: 0.73rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.4);
+    margin-bottom: 0.5rem;
+    flex: 1;
+  }
+
+  .product-specs {
+    font-family: 'Barlow', sans-serif;
+    font-size: 0.67rem;
+    color: rgba(200, 168, 107, 0.65);
+    letter-spacing: 0.03em;
+    margin-bottom: 0.875rem;
+  }
+
+  .product-btn {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.55);
+    text-decoration: none;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 0.45rem;
+    text-align: center;
+    transition: background 0.2s, color 0.2s, border-color 0.2s;
+    display: block;
+  }
+
+  .product-btn:hover {
+    background: rgba(255, 255, 255, 0.07);
+    color: white;
+    border-color: rgba(255, 255, 255, 0.28);
+  }
+
+  @media (max-width: 1024px) {
+    .products-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 480px) {
+    .products-grid { grid-template-columns: 1fr; }
+  }
+</style>

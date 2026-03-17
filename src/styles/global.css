@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+@theme {
+  --font-heading: "Barlow Condensed", sans-serif;
+  --font-body: "Barlow", sans-serif;
+
+  --color-ink: #080808;
+  --color-ink-2: #101010;
+  --color-ink-3: #161616;
+  --color-paper: #f0efea;
+  --color-gold: #c8a86b;
+}
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Barlow', sans-serif;
+    background-color: #080808;
+    color: white;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+/*
+  Reveal animation — progressive enhancement.
+  JS in index.astro adds .reveal-ready to each .reveal element,
+  which enables the animation. Without JS, elements stay visible.
+*/
+.reveal-ready {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+
+.reveal-ready.visible {
+  opacity: 1;
+  transform: translateY(0);
+}

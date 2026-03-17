@@ -1,0 +1,311 @@
+---
+const year = new Date().getFullYear();
+
+const contacts = [
+  { label: 'Tel.', value: '(11) 7867-1075', href: 'tel:+541178671075' },
+  { label: 'WhatsApp', value: '(11) 1254-0275', href: 'https://wa.me/5491112540275' },
+  { label: 'Email', value: 'info@duxer.com.ar', href: 'mailto:info@duxer.com.ar' },
+];
+
+const navLinks = [
+  { label: 'Nosotros', href: '#nosotros' },
+  { label: 'Soluciones', href: '#soluciones' },
+  { label: 'Productos', href: '#productos' },
+  { label: 'Contacto', href: '#contacto' },
+];
+---
+
+<footer class="footer" aria-label="Pie de página DUXER">
+  <div class="footer-top">
+    <!-- Col 1: Brand -->
+    <div class="footer-brand">
+      <a href="/" class="footer-logo" aria-label="DUXER">
+        <img src="/logo.png" alt="DUXER" width="40" height="40" class="footer-logo-img" />
+        <div class="footer-logo-text">
+          <span class="footer-logo-name">DUXER</span>
+          <span class="footer-logo-sub">EQUIPO INDUSTRIAL</span>
+        </div>
+      </a>
+      <p class="footer-desc">
+        Distribución de equipos industriales de lavandería para hoteles, clubes deportivos,
+        maquinadoras y constructoras. Garantía, refacciones y soporte especializado.
+      </p>
+    </div>
+
+    <!-- Col 2: Nav -->
+    <div class="footer-col">
+      <p class="footer-col-title">Navegación</p>
+      <ul class="footer-list">
+        {navLinks.map((l) => (
+          <li class="footer-list-item">
+            <a href={l.href} class="footer-nav-link">{l.label}</a>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <!-- Col 3: Contact -->
+    <div class="footer-col">
+      <p class="footer-col-title">Contacto</p>
+      <ul class="footer-list footer-contact-list">
+        {contacts.map((c) => (
+          <li class="footer-list-item footer-contact-item">
+            <span class="contact-label">{c.label}</span>
+            <a href={c.href} class="contact-value">{c.value}</a>
+          </li>
+        ))}
+      </ul>
+      <div class="footer-hours">
+        <p class="hours-label">Horario de atención</p>
+        <p class="hours-value">Lunes a Viernes · 9:00 am – 6:00 pm</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom bar -->
+  <div class="footer-bottom">
+    <p class="footer-copy">
+      © {year} DUXER Equipo Industrial. Todos los derechos reservados.
+    </p>
+    <div class="footer-legal">
+      <a href="#" class="footer-legal-link">Política de Privacidad</a>
+      <a href="#" class="footer-legal-link">Declaración de accesibilidad</a>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background-color: #060606;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    padding: 4rem 1.5rem 0;
+  }
+
+  /* ── Top grid ── */
+  .footer-top {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.6fr 1fr 1fr;
+    gap: 3rem;
+    padding-bottom: 3.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  /* ── Brand column ── */
+  .footer-brand {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+    text-decoration: none;
+    margin-bottom: 1.25rem;
+  }
+
+  .footer-logo-img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    flex-shrink: 0;
+    display: block;
+  }
+
+  .footer-logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+  }
+
+  .footer-logo-name {
+    display: block;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800;
+    font-size: 1.1rem;
+    color: white;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    line-height: 1;
+  }
+
+  .footer-logo-sub {
+    display: block;
+    font-family: 'Barlow', sans-serif;
+    font-size: 0.46rem;
+    color: rgba(255, 255, 255, 0.32);
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    margin-top: 3px;
+    line-height: 1;
+  }
+
+  .footer-desc {
+    font-family: 'Barlow', sans-serif;
+    font-size: 0.8rem;
+    line-height: 1.75;
+    color: rgba(255, 255, 255, 0.33);
+    max-width: 280px;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* ── Other columns ── */
+  .footer-col {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .footer-col-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 0.65rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.28);
+    margin: 0 0 1.25rem 0;
+    padding: 0;
+  }
+
+  /* ── Lists ── */
+  .footer-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+  }
+
+  .footer-list-item {
+    margin: 0;
+    padding: 0;
+  }
+
+  .footer-nav-link {
+    font-family: 'Barlow', sans-serif;
+    font-size: 0.82rem;
+    color: rgba(255, 255, 255, 0.42);
+    text-decoration: none;
+    transition: color 0.2s;
+    display: inline-block;
+  }
+
+  .footer-nav-link:hover {
+    color: rgba(255, 255, 255, 0.85);
+  }
+
+  /* ── Contact list ── */
+  .footer-contact-list {
+    margin-bottom: 1.25rem;
+  }
+
+  .footer-contact-item {
+    display: flex;
+    gap: 0.625rem;
+    align-items: flex-start;
+  }
+
+  .contact-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 600;
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(200, 168, 107, 0.6);
+    min-width: 60px;
+    flex-shrink: 0;
+    padding-top: 1px;
+    display: inline-block;
+  }
+
+  .contact-value {
+    font-family: 'Barlow', sans-serif;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.45);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .contact-value:hover {
+    color: rgba(255, 255, 255, 0.85);
+  }
+
+  /* ── Hours ── */
+  .footer-hours {
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    padding-top: 1rem;
+    margin-top: 0;
+  }
+
+  .hours-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.62rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.22);
+    margin: 0 0 0.25rem 0;
+    padding: 0;
+  }
+
+  .hours-value {
+    font-family: 'Barlow', sans-serif;
+    font-size: 0.78rem;
+    color: rgba(255, 255, 255, 0.38);
+    margin: 0;
+    padding: 0;
+  }
+
+  /* ── Bottom bar ── */
+  .footer-bottom {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1.25rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .footer-copy {
+    font-family: 'Barlow', sans-serif;
+    font-size: 0.7rem;
+    color: rgba(255, 255, 255, 0.2);
+    margin: 0;
+    padding: 0;
+  }
+
+  .footer-legal {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  .footer-legal-link {
+    font-family: 'Barlow', sans-serif;
+    font-size: 0.7rem;
+    color: rgba(255, 255, 255, 0.22);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-legal-link:hover {
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 768px) {
+    .footer-top {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .footer-bottom {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+</style>

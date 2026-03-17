@@ -1,0 +1,86 @@
+---
+---
+
+<section class="clients" aria-label="Nuestros clientes">
+  <div class="clients-inner">
+    <p class="clients-label">Nuestros clientes</p>
+
+    <p class="clients-types">
+      Hoteles &nbsp;·&nbsp; Clubes deportivos &nbsp;·&nbsp; Maquinadoras &nbsp;·&nbsp; Constructoras &nbsp;·&nbsp; Entre otros
+    </p>
+
+    <div class="logos-row" aria-label="Logos de clientes">
+      {[1, 2, 3].map((i) => (
+        <div class="hard-rock-logo" aria-label={`Hard Rock Cafe`}>
+          <svg viewBox="0 0 120 48" width="120" height="48" aria-hidden="true">
+            <!-- Hard Rock typographic logo approximation -->
+            <rect x="0" y="0" width="120" height="48" fill="none"/>
+            <text x="60" y="20" text-anchor="middle"
+              font-family="'Barlow Condensed', sans-serif"
+              font-weight="900"
+              font-size="18"
+              fill="white"
+              letter-spacing="1">HARD ROCK</text>
+            <line x1="10" y1="26" x2="110" y2="26" stroke="rgba(255,255,255,0.3)" stroke-width="0.5"/>
+            <text x="60" y="40" text-anchor="middle"
+              font-family="'Barlow Condensed', sans-serif"
+              font-weight="400"
+              font-size="9"
+              fill="rgba(255,255,255,0.5)"
+              letter-spacing="4">C A F E</text>
+          </svg>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .clients {
+    background: #0d0d0d;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 2.5rem 1.5rem;
+    text-align: center;
+  }
+
+  .clients-inner {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .clients-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.35);
+    margin-bottom: 0.625rem;
+  }
+
+  .clients-types {
+    font-family: 'Barlow', sans-serif;
+    font-size: 0.78rem;
+    color: rgba(255, 255, 255, 0.3);
+    letter-spacing: 0.04em;
+    margin-bottom: 1.75rem;
+  }
+
+  .logos-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2.5rem;
+    flex-wrap: wrap;
+  }
+
+  .hard-rock-logo {
+    opacity: 0.45;
+    transition: opacity 0.25s;
+  }
+
+  .hard-rock-logo:hover {
+    opacity: 0.8;
+  }
+</style>

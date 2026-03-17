@@ -1,0 +1,55 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Hero from '../components/Hero.astro';
+import Clients from '../components/Clients.astro';
+import About from '../components/About.astro';
+import Solutions from '../components/Solutions.astro';
+import Products from '../components/Products.astro';
+import Guarantee from '../components/Guarantee.astro';
+import Contact from '../components/Contact.astro';
+import Footer from '../components/Footer.astro';
+import WhatsApp from '../components/WhatsApp.astro';
+import '../styles/global.css';
+---
+
+<Layout
+  title="DUXER | Equipos Industriales de Lavandería – Buenos Aires"
+  description="Distribución de lavadoras de barrera sanitaria y equipos para hoteles, clubes deportivos, maquinadoras y constructoras en Argentina. Garantía de 2 años, refacciones y soporte especializado."
+>
+  <Nav />
+  <main>
+    <Hero />
+    <Clients />
+    <About />
+    <Solutions />
+    <Products />
+    <Guarantee />
+    <Contact />
+  </main>
+  <Footer />
+  <!-- WhatsApp fixed button: at body level, outside any overflow:hidden container -->
+  <WhatsApp />
+</Layout>
+
+<script>
+  // Progressive reveal — JS adds the animation class, so elements
+  // are always visible without JS (no opacity:0 in CSS).
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.08, rootMargin: '0px 0px -30px 0px' }
+  );
+
+  document.querySelectorAll('.reveal').forEach((el, i) => {
+    el.classList.add('reveal-ready');
+    (el as HTMLElement).style.transitionDelay = `${(i % 3) * 0.08}s`;
+    observer.observe(el);
+  });
+</script>
