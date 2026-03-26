@@ -2,16 +2,24 @@
 const year = new Date().getFullYear();
 
 const contacts = [
-  { label: 'Tel.', value: '(11) 7867-1075', href: 'tel:+541178671075' },
-  { label: 'WhatsApp', value: '(11) 1254-0275', href: 'https://wa.me/5491112540275' },
-  { label: 'Email', value: 'info@duxer.com.ar', href: 'mailto:info@duxer.com.ar' },
+  { label: "Tel.", value: "(11) 7867-1075", href: "tel:+541178671075" },
+  {
+    label: "WhatsApp",
+    value: "(11) 1254-0275",
+    href: "https://wa.me/5491112540275",
+  },
+  {
+    label: "Email",
+    value: "info@duxer.com.ar",
+    href: "mailto:info@duxer.com.ar",
+  },
 ];
 
 const navLinks = [
-  { label: 'Nosotros', href: '#nosotros' },
-  { label: 'Soluciones', href: '#soluciones' },
-  { label: 'Productos', href: '#productos' },
-  { label: 'Contacto', href: '#contacto' },
+  { label: "Nosotros", href: "#nosotros" },
+  { label: "Soluciones", href: "#soluciones" },
+  { label: "Productos", href: "#productos" },
+  { label: "Contacto", href: "#contacto" },
 ];
 ---
 
@@ -20,15 +28,12 @@ const navLinks = [
     <!-- Col 1: Brand -->
     <div class="footer-brand">
       <a href="/" class="footer-logo" aria-label="DUXER">
-        <img src="/logo.png" alt="DUXER" width="40" height="40" class="footer-logo-img" />
-        <div class="footer-logo-text">
-          <span class="footer-logo-name">DUXER</span>
-          <span class="footer-logo-sub">EQUIPO INDUSTRIAL</span>
-        </div>
+        <img src="/logo.webp" alt="DUXER" width="250" height="66" />
       </a>
       <p class="footer-desc">
-        Distribución de equipos industriales de lavandería para hoteles, clubes deportivos,
-        maquinadoras y constructoras. Garantía, refacciones y soporte especializado.
+        Distribución de equipos industriales de lavandería para hoteles, clubes
+        deportivos, maquinadoras y constructoras. Garantía, refacciones y
+        soporte especializado.
       </p>
     </div>
 
@@ -36,11 +41,15 @@ const navLinks = [
     <div class="footer-col">
       <p class="footer-col-title">Navegación</p>
       <ul class="footer-list">
-        {navLinks.map((l) => (
-          <li class="footer-list-item">
-            <a href={l.href} class="footer-nav-link">{l.label}</a>
-          </li>
-        ))}
+        {
+          navLinks.map((l) => (
+            <li class="footer-list-item">
+              <a href={l.href} class="footer-nav-link">
+                {l.label}
+              </a>
+            </li>
+          ))
+        }
       </ul>
     </div>
 
@@ -48,12 +57,16 @@ const navLinks = [
     <div class="footer-col">
       <p class="footer-col-title">Contacto</p>
       <ul class="footer-list footer-contact-list">
-        {contacts.map((c) => (
-          <li class="footer-list-item footer-contact-item">
-            <span class="contact-label">{c.label}</span>
-            <a href={c.href} class="contact-value">{c.value}</a>
-          </li>
-        ))}
+        {
+          contacts.map((c) => (
+            <li class="footer-list-item footer-contact-item">
+              <span class="contact-label">{c.label}</span>
+              <a href={c.href} class="contact-value">
+                {c.value}
+              </a>
+            </li>
+          ))
+        }
       </ul>
       <div class="footer-hours">
         <p class="hours-label">Horario de atención</p>
@@ -107,14 +120,6 @@ const navLinks = [
     margin-bottom: 1.25rem;
   }
 
-  .footer-logo-img {
-    width: 40px;
-    height: 40px;
-    object-fit: contain;
-    flex-shrink: 0;
-    display: block;
-  }
-
   .footer-logo-text {
     display: flex;
     flex-direction: column;
@@ -123,7 +128,7 @@ const navLinks = [
 
   .footer-logo-name {
     display: block;
-    font-family: 'Barlow Condensed', sans-serif;
+    font-family: "Barlow Condensed", sans-serif;
     font-weight: 800;
     font-size: 1.1rem;
     color: white;
@@ -134,7 +139,7 @@ const navLinks = [
 
   .footer-logo-sub {
     display: block;
-    font-family: 'Barlow', sans-serif;
+    font-family: "Barlow", sans-serif;
     font-size: 0.46rem;
     color: rgba(255, 255, 255, 0.32);
     letter-spacing: 0.22em;
@@ -144,7 +149,7 @@ const navLinks = [
   }
 
   .footer-desc {
-    font-family: 'Barlow', sans-serif;
+    font-family: "Barlow", sans-serif;
     font-size: 0.8rem;
     line-height: 1.75;
     color: rgba(255, 255, 255, 0.33);
@@ -160,7 +165,7 @@ const navLinks = [
   }
 
   .footer-col-title {
-    font-family: 'Barlow Condensed', sans-serif;
+    font-family: "Barlow Condensed", sans-serif;
     font-weight: 700;
     font-size: 0.65rem;
     letter-spacing: 0.28em;
@@ -186,7 +191,7 @@ const navLinks = [
   }
 
   .footer-nav-link {
-    font-family: 'Barlow', sans-serif;
+    font-family: "Barlow", sans-serif;
     font-size: 0.82rem;
     color: rgba(255, 255, 255, 0.42);
     text-decoration: none;
@@ -210,7 +215,7 @@ const navLinks = [
   }
 
   .contact-label {
-    font-family: 'Barlow Condensed', sans-serif;
+    font-family: "Barlow Condensed", sans-serif;
     font-weight: 600;
     font-size: 0.62rem;
     letter-spacing: 0.1em;
@@ -223,7 +228,7 @@ const navLinks = [
   }
 
   .contact-value {
-    font-family: 'Barlow', sans-serif;
+    font-family: "Barlow", sans-serif;
     font-size: 0.8rem;
     color: rgba(255, 255, 255, 0.45);
     text-decoration: none;
@@ -242,7 +247,7 @@ const navLinks = [
   }
 
   .hours-label {
-    font-family: 'Barlow Condensed', sans-serif;
+    font-family: "Barlow Condensed", sans-serif;
     font-size: 0.62rem;
     letter-spacing: 0.15em;
     text-transform: uppercase;
@@ -252,7 +257,7 @@ const navLinks = [
   }
 
   .hours-value {
-    font-family: 'Barlow', sans-serif;
+    font-family: "Barlow", sans-serif;
     font-size: 0.78rem;
     color: rgba(255, 255, 255, 0.38);
     margin: 0;
@@ -272,7 +277,7 @@ const navLinks = [
   }
 
   .footer-copy {
-    font-family: 'Barlow', sans-serif;
+    font-family: "Barlow", sans-serif;
     font-size: 0.7rem;
     color: rgba(255, 255, 255, 0.2);
     margin: 0;
@@ -285,7 +290,7 @@ const navLinks = [
   }
 
   .footer-legal-link {
-    font-family: 'Barlow', sans-serif;
+    font-family: "Barlow", sans-serif;
     font-size: 0.7rem;
     color: rgba(255, 255, 255, 0.22);
     text-decoration: none;
