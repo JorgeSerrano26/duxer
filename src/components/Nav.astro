@@ -7,51 +7,51 @@ const navLinks = [
 ];
 ---
 
-<header id="main-nav" class="site-nav" role="banner">
-  <div class="nav-inner">
-    <a href="/" class="nav-logo" aria-label="DUXER - Inicio">
+<header id="main-nav" class="site-nav fixed top-0 left-0 right-0 z-[100] transition-[background,border-color] duration-[350ms]" role="banner">
+  <div class="max-w-[1200px] mx-auto px-6 h-[68px] flex items-center justify-between">
+    <a href="/" class="flex items-center gap-[0.6rem] no-underline shrink-0" aria-label="DUXER - Inicio">
       <img
         src="/logo.webp"
         alt="DUXER logo"
         width="150"
         height="40"
-        class="logo-img"
+        class="block"
       />
     </a>
 
-    <div class="desktop-links" role="navigation" aria-label="Menú principal">
+    <div class="hidden md:flex items-center gap-8" role="navigation" aria-label="Menú principal">
       {
         navLinks.map((link) => (
-          <a href={link.href} class="nav-link">
+          <a href={link.href} class="font-heading font-semibold text-[0.85rem] tracking-[0.13em] uppercase text-white/65 no-underline transition-colors duration-200 hover:text-white">
             {link.label}
           </a>
         ))
       }
-      <a href="#contacto" class="nav-cta">Cotizar</a>
+      <a href="#contacto" class="font-heading font-bold text-[0.82rem] tracking-[0.12em] uppercase text-white no-underline border border-white/[0.28] px-[1.1rem] py-[0.45rem] transition-[background,border-color] duration-200 hover:bg-white/[0.09] hover:border-white/55">Cotizar</a>
     </div>
 
     <button
       id="menu-btn"
-      class="hamburger"
+      class="flex md:hidden flex-col gap-[5px] bg-transparent border-0 cursor-pointer p-2 shrink-0"
       aria-label="Abrir menú"
       aria-expanded="false"
       aria-controls="mobile-overlay"
     >
-      <span class="bar"></span>
-      <span class="bar"></span>
-      <span class="bar"></span>
+      <span class="block w-6 h-[2px] bg-white transition-[transform,opacity] duration-300"></span>
+      <span class="block w-6 h-[2px] bg-white transition-[transform,opacity] duration-300"></span>
+      <span class="block w-6 h-[2px] bg-white transition-[transform,opacity] duration-300"></span>
     </button>
   </div>
 </header>
 
 <div
   id="mobile-overlay"
-  class="mobile-overlay"
+  class="mobile-overlay flex fixed inset-0 bg-ink z-[200] flex-col items-center justify-center gap-8 -translate-x-full invisible"
   role="dialog"
   aria-modal="true"
   aria-label="Menú de navegación"
 >
-  <button id="close-btn" class="close-btn" aria-label="Cerrar menú">
+  <button id="close-btn" class="absolute top-5 right-6 bg-transparent border-0 cursor-pointer p-2" aria-label="Cerrar menú">
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
       <path
         d="M18 6L6 18M6 6l12 12"
@@ -62,151 +62,19 @@ const navLinks = [
   </button>
   {
     navLinks.map((link) => (
-      <a href={link.href} class="mobile-link">
+      <a href={link.href} class="mobile-link font-heading font-black text-[2.5rem] tracking-[0.12em] uppercase text-white no-underline transition-colors duration-200 hover:text-white/50">
         {link.label}
       </a>
     ))
   }
-  <a href="#contacto" class="mobile-link mobile-cta">Cotizar</a>
+  <a href="#contacto" class="mobile-link font-heading font-black text-[1.75rem] tracking-[0.12em] uppercase text-white no-underline border border-white/25 px-8 py-[0.6rem] mt-2 transition-colors duration-200 hover:text-white/50">Cotizar</a>
 </div>
 
 <style>
-  .site-nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 100;
-    transition:
-      background 0.35s,
-      border-color 0.35s;
-  }
-
   .site-nav.scrolled {
     background: rgba(8, 8, 8, 0.96);
     backdrop-filter: blur(14px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.07);
-  }
-
-  .nav-inner {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 1.5rem;
-    height: 68px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .nav-logo {
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-    text-decoration: none;
-    flex-shrink: 0;
-  }
-
-  .logo-text {
-    display: flex;
-    flex-direction: column;
-    line-height: 1;
-  }
-
-  .logo-name {
-    font-family: "Barlow Condensed", sans-serif;
-    font-weight: 800;
-    font-size: 1.3rem;
-    color: white;
-    letter-spacing: 0.13em;
-    text-transform: uppercase;
-  }
-
-  .logo-sub {
-    font-family: "Barlow", sans-serif;
-    font-size: 0.48rem;
-    color: rgba(255, 255, 255, 0.4);
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    margin-top: 2px;
-  }
-
-  .desktop-links {
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-  }
-
-  .nav-link {
-    font-family: "Barlow Condensed", sans-serif;
-    font-weight: 600;
-    font-size: 0.85rem;
-    letter-spacing: 0.13em;
-    text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.65);
-    text-decoration: none;
-    transition: color 0.2s;
-  }
-
-  .nav-link:hover {
-    color: white;
-  }
-
-  .nav-cta {
-    font-family: "Barlow Condensed", sans-serif;
-    font-weight: 700;
-    font-size: 0.82rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: white;
-    text-decoration: none;
-    border: 1px solid rgba(255, 255, 255, 0.28);
-    padding: 0.45rem 1.1rem;
-    transition:
-      background 0.2s,
-      border-color 0.2s;
-  }
-
-  .nav-cta:hover {
-    background: rgba(255, 255, 255, 0.09);
-    border-color: rgba(255, 255, 255, 0.55);
-  }
-
-  .hamburger {
-    display: none;
-    flex-direction: column;
-    gap: 5px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0.5rem;
-    flex-shrink: 0;
-  }
-
-  .bar {
-    display: block;
-    width: 24px;
-    height: 2px;
-    background: white;
-    transition:
-      transform 0.3s,
-      opacity 0.3s;
-  }
-
-  .mobile-overlay {
-    display: flex;
-    position: fixed;
-    inset: 0;
-    background: #080808;
-    z-index: 200;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 2rem;
-    transform: translateX(-100%);
-    visibility: hidden;
-    transition:
-      transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
-      visibility 0s linear 0.4s;
   }
 
   .mobile-overlay.is-open {
@@ -217,45 +85,10 @@ const navLinks = [
       visibility 0s linear 0s;
   }
 
-  .close-btn {
-    position: absolute;
-    top: 1.25rem;
-    right: 1.5rem;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0.5rem;
-  }
-
-  .mobile-link {
-    font-family: "Barlow Condensed", sans-serif;
-    font-weight: 800;
-    font-size: 2.5rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: white;
-    text-decoration: none;
-    transition: color 0.2s;
-  }
-
-  .mobile-link:hover {
-    color: rgba(255, 255, 255, 0.5);
-  }
-
-  .mobile-cta {
-    border: 1px solid rgba(255, 255, 255, 0.25);
-    padding: 0.6rem 2rem;
-    margin-top: 0.5rem;
-    font-size: 1.75rem;
-  }
-
-  @media (max-width: 768px) {
-    .desktop-links {
-      display: none;
-    }
-    .hamburger {
-      display: flex;
-    }
+  .mobile-overlay {
+    transition:
+      transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+      visibility 0s linear 0.4s;
   }
 </style>
 

@@ -1,128 +1,43 @@
 ---
 ---
 
-<section id="nosotros" class="about" aria-label="Sobre DUXER">
-  <div class="about-grid">
-    <!-- Left: Text -->
-    <div class="about-text reveal">
-      <h2 class="about-heading">
-        Tu garantía<br />
-        en atención<br />
-        y calidad
-      </h2>
+<section id="nosotros" class="relative bg-ink overflow-hidden min-h-[520px] flex items-center" aria-label="Sobre DUXER">
+  <!-- Full-width background image -->
+  <img
+    src="/lavandery.png"
+    alt="Equipos de lavandería industrial DUXER — fila de lavadoras de barrera sanitaria"
+    width="1400"
+    height="550"
+    loading="lazy"
+    class="absolute inset-0 w-full h-full object-cover"
+  />
 
-      <div class="about-divider"></div>
+  <!-- Gradient overlay: black on left fading to transparent on right -->
+  <div
+    class="absolute inset-0"
+    style="background: linear-gradient(to right, #060606 0%, #060606 35%, rgba(6,6,6,0.75) 55%, rgba(6,6,6,0.1) 80%, transparent 100%);"
+    aria-hidden="true"
+  ></div>
 
-      <p class="about-body">
-        Como empresa orgullosamente argentina, en DUXER brindamos equipos de
-        lavandería industrial que combinan calidad, accesibilidad y servicio
-        excepcional.
-      </p>
+  <!-- Text content -->
+  <div class="relative z-10 py-20 px-[clamp(2rem,4vw,5rem)] flex flex-col justify-center reveal max-md:py-12 max-md:px-6 max-w-[520px]">
+    <h2 class="font-heading font-black text-[clamp(2.75rem,5vw,4.5rem)] leading-[0.95] text-white uppercase tracking-[0.03em] mb-7">
+      Tu garantía<br />
+      en atención<br />
+      y calidad
+    </h2>
 
-      <p class="about-body">
-        Ofrecemos soluciones completas que respalden el desempeño y la
-        continuidad de tu operación.
-      </p>
-    </div>
+    <div class="w-9 h-0.5 bg-gold/60 mb-7"></div>
 
-    <!-- Right: Real photo of industrial washing machines -->
-    <div class="about-image">
-      <img
-        src="/lavandery.png"
-        alt="Equipos de lavandería industrial DUXER — fila de lavadoras de barrera sanitaria"
-        width="700"
-        height="550"
-        loading="lazy"
-        class="about-img"
-      />
-      <div class="about-img-overlay" aria-hidden="true"></div>
-    </div>
+    <p class="font-body text-[0.9rem] leading-[1.8] text-white/50 mb-4 max-w-[380px]">
+      Como empresa orgullosamente argentina, en DUXER brindamos equipos de
+      lavandería industrial que combinan calidad, accesibilidad y servicio
+      excepcional.
+    </p>
+
+    <p class="font-body text-[0.9rem] leading-[1.8] text-white/50 mb-4 max-w-[380px]">
+      Ofrecemos soluciones completas que respalden el desempeño y la
+      continuidad de tu operación.
+    </p>
   </div>
 </section>
-
-<style>
-  .about {
-    background: #080808;
-    overflow: hidden;
-  }
-
-  .about-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    min-height: 520px;
-  }
-
-  .about-text {
-    padding: 5rem clamp(2rem, 4vw, 5rem);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-
-  .about-heading {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 900;
-    font-size: clamp(2.75rem, 5vw, 4.5rem);
-    line-height: 0.95;
-    color: white;
-    text-transform: uppercase;
-    letter-spacing: 0.03em;
-    margin-bottom: 1.75rem;
-  }
-
-  .about-divider {
-    width: 36px;
-    height: 2px;
-    background: rgba(200, 168, 107, 0.6);
-    margin-bottom: 1.75rem;
-  }
-
-  .about-body {
-    font-family: 'Barlow', sans-serif;
-    font-size: 0.9rem;
-    line-height: 1.8;
-    color: rgba(255, 255, 255, 0.5);
-    margin-bottom: 1rem;
-    max-width: 380px;
-  }
-
-  .about-image {
-    position: relative;
-    overflow: hidden;
-  }
-
-  .about-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    min-height: 440px;
-  }
-
-  /* Subtle left fade so it blends with the text panel */
-  .about-img-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-      to right,
-      rgba(8, 8, 8, 0.55) 0%,
-      transparent 40%
-    );
-  }
-
-  @media (max-width: 768px) {
-    .about-grid {
-      grid-template-columns: 1fr;
-    }
-    .about-image {
-      order: -1;
-      height: 260px;
-    }
-    .about-img {
-      min-height: 260px;
-    }
-    .about-text {
-      padding: 3rem 1.5rem;
-    }
-  }
-</style>

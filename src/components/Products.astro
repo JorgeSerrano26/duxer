@@ -31,209 +31,51 @@ const products = [
 ];
 ---
 
-<section id="productos" class="products" aria-label="Líneas de producto">
-  <div class="products-texture" aria-hidden="true"></div>
+<section id="productos" class="bg-ink py-[5.5rem] px-6 relative overflow-hidden" aria-label="Líneas de producto">
+  <div class="absolute inset-0 bg-[repeating-linear-gradient(-55deg,transparent,transparent_6px,rgba(255,255,255,0.012)_6px,rgba(255,255,255,0.012)_12px)] pointer-events-none" aria-hidden="true"></div>
 
-  <div class="products-inner">
-    <header class="products-header reveal">
-      <h2 class="products-heading">Líneas de producto</h2>
-      <p class="products-sub">
+  <div class="relative z-[1] max-w-[1200px] mx-auto">
+    <header class="text-center mb-12 reveal">
+      <h2 class="font-heading font-black text-[clamp(1.75rem,4vw,2.75rem)] tracking-[0.08em] uppercase text-white mb-3">
+        Líneas de producto
+      </h2>
+      <p class="font-body text-[0.85rem] text-white/[0.38] max-w-[380px] mx-auto leading-[1.6]">
         Equipos de alta calidad para cada etapa del proceso de lavandería industrial.
       </p>
     </header>
 
-    <div class="products-grid">
+    <div class="grid grid-cols-1 min-[480px]:grid-cols-2 lg:grid-cols-4 gap-4">
       {products.map((p) => (
-        <article class="product-card reveal">
-          <div class="product-img-wrap">
+        <article class="bg-[#131313] border border-white/[0.07] overflow-hidden flex flex-col transition-[border-color,transform] duration-300 hover:border-white/20 hover:-translate-y-[4px] group reveal">
+          <div class="relative overflow-hidden bg-[#1a1a1a]">
             <img
               src={p.image}
               alt={p.alt}
               width="300"
               height="220"
               loading="lazy"
-              class="product-img"
+              class="w-full h-[170px] object-contain block p-4 transition-transform duration-500 group-hover:scale-[1.06]"
             />
-            <span class="product-badge">DUXER</span>
+            <span class="absolute top-[0.6rem] left-[0.6rem] font-heading font-bold text-[0.52rem] tracking-[0.2em] uppercase text-gold/80 bg-ink/[0.88] border border-gold/20 px-[0.4rem] py-[0.18rem]">
+              DUXER
+            </span>
           </div>
-          <div class="product-body">
-            <h3 class="product-name">{p.name}</h3>
-            <p class="product-desc">{p.desc}</p>
-            <p class="product-specs">{p.specs}</p>
-            <a href="#contacto" class="product-btn">Ver detalles</a>
+          <div class="px-[1.1rem] pt-4 pb-5 flex flex-col flex-1">
+            <h3 class="font-heading font-extrabold text-[0.95rem] tracking-[0.06em] uppercase text-white mb-[0.45rem]">
+              {p.name}
+            </h3>
+            <p class="font-body text-[0.73rem] leading-[1.6] text-white/40 mb-2 flex-1">
+              {p.desc}
+            </p>
+            <p class="font-body text-[0.67rem] text-gold/65 tracking-[0.03em] mb-3.5">
+              {p.specs}
+            </p>
+            <a href="#contacto" class="font-heading font-bold text-[0.68rem] tracking-[0.12em] uppercase text-white/55 no-underline border border-white/[0.1] p-[0.45rem] text-center transition-[background,color,border-color] duration-200 block hover:bg-white/[0.07] hover:text-white hover:border-white/[0.28]">
+              Ver detalles
+            </a>
           </div>
         </article>
       ))}
     </div>
   </div>
 </section>
-
-<style>
-  .products {
-    background: #080808;
-    padding: 5.5rem 1.5rem;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .products-texture {
-    position: absolute;
-    inset: 0;
-    background-image: repeating-linear-gradient(
-      -55deg,
-      transparent,
-      transparent 6px,
-      rgba(255, 255, 255, 0.012) 6px,
-      rgba(255, 255, 255, 0.012) 12px
-    );
-    pointer-events: none;
-  }
-
-  .products-inner {
-    position: relative;
-    z-index: 1;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-
-  .products-header {
-    text-align: center;
-    margin-bottom: 3rem;
-  }
-
-  .products-heading {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 900;
-    font-size: clamp(1.75rem, 4vw, 2.75rem);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: white;
-    margin-bottom: 0.75rem;
-  }
-
-  .products-sub {
-    font-family: 'Barlow', sans-serif;
-    font-size: 0.85rem;
-    color: rgba(255, 255, 255, 0.38);
-    max-width: 380px;
-    margin: 0 auto;
-    line-height: 1.6;
-  }
-
-  .products-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1rem;
-  }
-
-  .product-card {
-    background: #131313;
-    border: 1px solid rgba(255, 255, 255, 0.07);
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    transition: border-color 0.3s, transform 0.3s;
-  }
-
-  .product-card:hover {
-    border-color: rgba(255, 255, 255, 0.2);
-    transform: translateY(-4px);
-  }
-
-  .product-img-wrap {
-    position: relative;
-    overflow: hidden;
-    background: #1a1a1a;
-  }
-
-  .product-img {
-    width: 100%;
-    height: 170px;
-    object-fit: contain;
-    display: block;
-    padding: 1rem;
-    transition: transform 0.5s;
-  }
-
-  .product-card:hover .product-img {
-    transform: scale(1.06);
-  }
-
-  .product-badge {
-    position: absolute;
-    top: 0.6rem;
-    left: 0.6rem;
-    font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 700;
-    font-size: 0.52rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: rgba(200, 168, 107, 0.8);
-    background: rgba(8, 8, 8, 0.88);
-    border: 1px solid rgba(200, 168, 107, 0.2);
-    padding: 0.18rem 0.4rem;
-  }
-
-  .product-body {
-    padding: 1rem 1.1rem 1.25rem;
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-  }
-
-  .product-name {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 800;
-    font-size: 0.95rem;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: white;
-    margin-bottom: 0.45rem;
-  }
-
-  .product-desc {
-    font-family: 'Barlow', sans-serif;
-    font-size: 0.73rem;
-    line-height: 1.6;
-    color: rgba(255, 255, 255, 0.4);
-    margin-bottom: 0.5rem;
-    flex: 1;
-  }
-
-  .product-specs {
-    font-family: 'Barlow', sans-serif;
-    font-size: 0.67rem;
-    color: rgba(200, 168, 107, 0.65);
-    letter-spacing: 0.03em;
-    margin-bottom: 0.875rem;
-  }
-
-  .product-btn {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 700;
-    font-size: 0.68rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.55);
-    text-decoration: none;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 0.45rem;
-    text-align: center;
-    transition: background 0.2s, color 0.2s, border-color 0.2s;
-    display: block;
-  }
-
-  .product-btn:hover {
-    background: rgba(255, 255, 255, 0.07);
-    color: white;
-    border-color: rgba(255, 255, 255, 0.28);
-  }
-
-  @media (max-width: 1024px) {
-    .products-grid { grid-template-columns: repeat(2, 1fr); }
-  }
-
-  @media (max-width: 480px) {
-    .products-grid { grid-template-columns: 1fr; }
-  }
-</style>

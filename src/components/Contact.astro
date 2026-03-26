@@ -2,49 +2,53 @@
 const siteKey = import.meta.env.PUBLIC_RECAPTCHA_SITE_KEY ?? '';
 ---
 
-<section id="contacto" class="contact" aria-label="Formulario de contacto">
-  <div class="contact-inner">
+<section id="contacto" class="bg-paper py-[5.5rem] px-6" aria-label="Formulario de contacto">
+  <div class="max-w-[540px] mx-auto">
     <!-- Header -->
-    <header class="contact-header reveal">
-      <h2 class="contact-heading">Contáctanos</h2>
+    <header class="text-center mb-[2.75rem] reveal">
+      <h2 class="font-heading font-black text-[clamp(2.5rem,6vw,4.25rem)] leading-none text-[#0a0a0a] uppercase tracking-[0.04em]">Contáctanos</h2>
     </header>
 
     <!-- Form -->
     <form
       id="contact-form"
-      class="contact-form reveal"
+      class="flex flex-col gap-7 reveal"
       novalidate
       aria-label="Formulario de solicitud de información"
     >
-      <div class="field">
-        <label for="email" class="field-label">Email</label>
+      <div class="flex flex-col">
+        <label for="email" class="font-body text-[0.65rem] tracking-[0.15em] uppercase text-black/35 mb-[0.3rem]">Email</label>
         <input type="email" id="email" name="email" placeholder="tu@email.com"
-          class="field-input" autocomplete="email" required aria-required="true"
+          class="bg-transparent border-0 border-b border-black/20 py-[0.55rem] px-0 font-body text-[0.875rem] text-[#111] outline-none transition-[border-color] duration-200 w-full placeholder:text-black/30 placeholder:text-[0.85rem] focus:border-b-black/60"
+          autocomplete="email" required aria-required="true"
           aria-describedby="email-err"/>
         <p id="email-err" class="field-err" role="alert" aria-live="polite"></p>
       </div>
 
-      <div class="field">
-        <label for="name" class="field-label">Nombre</label>
+      <div class="flex flex-col">
+        <label for="name" class="font-body text-[0.65rem] tracking-[0.15em] uppercase text-black/35 mb-[0.3rem]">Nombre</label>
         <input type="text" id="name" name="name" placeholder="Tu nombre completo"
-          class="field-input" autocomplete="name" required aria-required="true"
+          class="bg-transparent border-0 border-b border-black/20 py-[0.55rem] px-0 font-body text-[0.875rem] text-[#111] outline-none transition-[border-color] duration-200 w-full placeholder:text-black/30 placeholder:text-[0.85rem] focus:border-b-black/60"
+          autocomplete="name" required aria-required="true"
           aria-describedby="name-err"/>
         <p id="name-err" class="field-err" role="alert" aria-live="polite"></p>
       </div>
 
-      <div class="field">
-        <label for="company" class="field-label">Nombre de la compañía</label>
+      <div class="flex flex-col">
+        <label for="company" class="font-body text-[0.65rem] tracking-[0.15em] uppercase text-black/35 mb-[0.3rem]">Nombre de la compañía</label>
         <input type="text" id="company" name="company" placeholder="Tu empresa"
-          class="field-input" autocomplete="organization"
+          class="bg-transparent border-0 border-b border-black/20 py-[0.55rem] px-0 font-body text-[0.875rem] text-[#111] outline-none transition-[border-color] duration-200 w-full placeholder:text-black/30 placeholder:text-[0.85rem] focus:border-b-black/60"
+          autocomplete="organization"
           aria-describedby="company-err"/>
         <p id="company-err" class="field-err" role="alert" aria-live="polite"></p>
       </div>
 
-      <div class="field">
-        <label for="message" class="field-label">Mensaje</label>
+      <div class="flex flex-col">
+        <label for="message" class="font-body text-[0.65rem] tracking-[0.15em] uppercase text-black/35 mb-[0.3rem]">Mensaje</label>
         <textarea id="message" name="message"
           placeholder="Cuéntanos sobre tu proyecto o necesidad..."
-          class="field-textarea" rows="4" required aria-required="true"
+          class="bg-transparent border-0 border-b border-black/20 py-[0.55rem] px-0 font-body text-[0.875rem] text-[#111] outline-none transition-[border-color] duration-200 w-full placeholder:text-black/30 placeholder:text-[0.85rem] focus:border-b-black/60 resize-none min-h-[80px]"
+          rows="4" required aria-required="true"
           aria-describedby="message-err"></textarea>
         <p id="message-err" class="field-err" role="alert" aria-live="polite"></p>
       </div>
@@ -53,12 +57,12 @@ const siteKey = import.meta.env.PUBLIC_RECAPTCHA_SITE_KEY ?? '';
 
       <div id="form-msg" class="form-msg" role="status" aria-live="polite"></div>
 
-      <button type="submit" id="submit-btn" class="submit-btn">
+      <button type="submit" id="submit-btn" class="font-heading font-bold text-[0.9rem] tracking-[0.12em] uppercase text-white bg-[#111] border border-white/[0.08] py-4 px-8 cursor-pointer w-full transition-[background,transform] duration-200 rounded-[2px] enabled:hover:bg-[#222] enabled:hover:-translate-y-px disabled:opacity-60 disabled:cursor-not-allowed">
         Solicitar información
       </button>
 
-      <p class="form-note">
-        Al enviar aceptas nuestra <a href="#" class="form-note-link">Política de Privacidad</a>.
+      <p class="font-body text-[0.68rem] text-black/[0.28] text-center leading-[1.5]">
+        Al enviar aceptas nuestra <a href="#" class="text-black/45 underline">Política de Privacidad</a>.
         Sitio protegido por reCAPTCHA.
       </p>
     </form>
@@ -147,81 +151,6 @@ const siteKey = import.meta.env.PUBLIC_RECAPTCHA_SITE_KEY ?? '';
 </script>
 
 <style>
-  .contact {
-    background: #f0efea;
-    padding: 5.5rem 1.5rem;
-  }
-
-  .contact-inner {
-    max-width: 540px;
-    margin: 0 auto;
-  }
-
-  .contact-header {
-    text-align: center;
-    margin-bottom: 2.75rem;
-  }
-
-  .contact-heading {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 900;
-    font-size: clamp(2.5rem, 6vw, 4.25rem);
-    line-height: 1;
-    color: #0a0a0a;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-  }
-
-  .contact-form {
-    display: flex;
-    flex-direction: column;
-    gap: 1.75rem;
-  }
-
-  .field {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .field-label {
-    font-family: 'Barlow', sans-serif;
-    font-size: 0.65rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: rgba(0, 0, 0, 0.35);
-    margin-bottom: 0.3rem;
-  }
-
-  .field-input,
-  .field-textarea {
-    background: transparent;
-    border: none;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-    padding: 0.55rem 0;
-    font-family: 'Barlow', sans-serif;
-    font-size: 0.875rem;
-    color: #111;
-    outline: none;
-    transition: border-color 0.2s;
-    width: 100%;
-  }
-
-  .field-input::placeholder,
-  .field-textarea::placeholder {
-    color: rgba(0, 0, 0, 0.3);
-    font-size: 0.85rem;
-  }
-
-  .field-input:focus,
-  .field-textarea:focus {
-    border-bottom-color: rgba(0, 0, 0, 0.6);
-  }
-
-  .field-textarea {
-    resize: none;
-    min-height: 80px;
-  }
-
   .field-err {
     font-family: 'Barlow', sans-serif;
     font-size: 0.72rem;
@@ -257,44 +186,5 @@ const siteKey = import.meta.env.PUBLIC_RECAPTCHA_SITE_KEY ?? '';
     background: rgba(231, 76, 60, 0.08);
     border: 1px solid rgba(231, 76, 60, 0.25);
     color: #922b21;
-  }
-
-  .submit-btn {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 700;
-    font-size: 0.9rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: white;
-    background: #111;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    padding: 1rem 2rem;
-    cursor: pointer;
-    width: 100%;
-    transition: background 0.2s, transform 0.15s;
-    border-radius: 2px;
-  }
-
-  .submit-btn:hover:not(:disabled) {
-    background: #222;
-    transform: translateY(-1px);
-  }
-
-  .submit-btn:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
-  }
-
-  .form-note {
-    font-family: 'Barlow', sans-serif;
-    font-size: 0.68rem;
-    color: rgba(0, 0, 0, 0.28);
-    text-align: center;
-    line-height: 1.5;
-  }
-
-  .form-note-link {
-    color: rgba(0, 0, 0, 0.45);
-    text-decoration: underline;
   }
 </style>
