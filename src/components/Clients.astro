@@ -10,26 +10,16 @@
     </p>
 
     <div class="flex items-center justify-center gap-10 flex-wrap" aria-label="Logos de clientes">
-      {[1, 2, 3].map((i) => (
-        <div class="opacity-45 transition-opacity duration-[250ms] hover:opacity-80" aria-label={`Hard Rock Cafe`}>
-          <svg viewBox="0 0 120 48" width="120" height="48" aria-hidden="true">
-            <rect x="0" y="0" width="120" height="48" fill="none"/>
-            <text x="60" y="20" text-anchor="middle"
-              font-family="'Barlow Condensed', sans-serif"
-              font-weight="900"
-              font-size="18"
-              fill="white"
-              letter-spacing="1">HARD ROCK</text>
-            <line x1="10" y1="26" x2="110" y2="26" stroke="rgba(255,255,255,0.3)" stroke-width="0.5"/>
-            <text x="60" y="40" text-anchor="middle"
-              font-family="'Barlow Condensed', sans-serif"
-              font-weight="400"
-              font-size="9"
-              fill="rgba(255,255,255,0.5)"
-              letter-spacing="4">C A F E</text>
-          </svg>
-        </div>
-      ))}
+      <div class="opacity-45 transition-opacity duration-[250ms] hover:opacity-80">
+        <img
+          src="/clientes/hardrock.png"
+          alt="Hard Rock Cafe"
+          width="120"
+          height="48"
+          loading="lazy"
+          class="h-12 w-auto object-contain invert"
+        />
+      </div>
     </div>
   </div>
 </section>

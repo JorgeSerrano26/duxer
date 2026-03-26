@@ -2,23 +2,23 @@
 const services = [
   {
     title: 'Asesoría y Proyectos',
-    body: 'Diseñamos la disposición de la lavandería para maximizar flujos de trabajo eficientes y óptimos. Te acompañamos desde el análisis inicial de necesidades hasta la implementación completa.',
+    body: 'Diseñamos la disposición de tu lavandería para maximizar el flujo de trabajo y optimizar el espacio, ya sea para un hotel boutique, hospital o planta industrial.',
     detail: 'Te acompañamos desde la planeación hasta la implementación.',
-    image: '/lavandery.png',
+    image: '/solution-01.jpg',
     alt: 'Equipo de asesoría DUXER planificando la disposición de una lavandería industrial',
   },
   {
     title: 'Venta y Soporte',
-    body: 'Venta de lavadoras, secadoras y equipos industriales de alta eficiencia diseñados para trabajo continuo, con soporte postventa para asegurar el rendimiento óptimo de tu operación.',
+    body: 'Venta de lavadoras, secadoras y equipos industriales de marca propia. Equipos de alta eficiencia diseñados para trabajo continuo, con respaldo técnico especializado y garantía directa.',
     detail: 'Soporte postventa para asegurar el rendimiento óptimo de tu operación.',
-    image: '/lavado_industrial.png',
-    alt: 'Lavadora industrial DUXER — venta y soporte técnico especializado',
+    image: '/solution-02.jpg',
+    alt: 'Asesor DUXER brindando soporte técnico especializado a cliente',
   },
 ];
 ---
 
 <section id="soluciones" class="bg-paper py-[5.5rem] px-6" aria-label="Soluciones integrales">
-  <div class="max-w-[1100px] mx-auto">
+  <div class="max-w-[720px] mx-auto">
     <header class="text-center mb-14 reveal">
       <h2 class="font-heading font-black text-[clamp(2rem,5vw,3.25rem)] leading-none text-[#0a0a0a] uppercase tracking-[0.05em] mb-4">
         Soluciones integrales<br />para tu operación
@@ -30,25 +30,28 @@ const services = [
 
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
       {services.map((s) => (
-        <article class="bg-white border border-black/[0.06] overflow-hidden transition-[box-shadow,transform] duration-300 hover:shadow-[0_12px_40px_rgba(0,0,0,0.1)] hover:-translate-y-[3px] group reveal">
-          <div class="overflow-hidden bg-[#e8e7e2]">
+        <article class="rounded-3xl overflow-hidden flex flex-col reveal" style="min-height: 520px;">
+          <!-- Top 50%: image -->
+          <div class="flex-1 overflow-hidden">
             <img
               src={s.image}
               alt={s.alt}
               width="580"
-              height="300"
+              height="320"
               loading="lazy"
-              class="w-full h-[220px] object-cover block transition-transform duration-500 group-hover:scale-[1.04]"
+              class="w-full h-full object-cover block"
             />
           </div>
-          <div class="p-7">
-            <h3 class="font-heading font-extrabold text-[1.35rem] tracking-[0.04em] uppercase text-[#0a0a0a] mb-3">
+
+          <!-- Bottom 50%: dark content -->
+          <div class="flex-1 bg-[#0f0f0f] px-8 py-8 flex flex-col justify-center">
+            <h3 class="font-heading font-black text-[1.4rem] tracking-[0.03em] uppercase text-white mb-4 leading-[1.1]">
               {s.title}
             </h3>
-            <p class="font-body text-[0.85rem] leading-[1.75] text-black/50 mb-3">
+            <p class="font-body text-[0.85rem] leading-[1.75] text-white/50 mb-3">
               {s.body}
             </p>
-            <p class="font-body text-[0.78rem] italic text-black/35">
+            <p class="font-body text-[0.78rem] italic text-white/30">
               {s.detail}
             </p>
           </div>
