@@ -137,7 +137,7 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
             </table>
           </div>
           <p style="font-size:0.75rem; color:#aaa; margin-top:1.5rem; text-align:center;">
-            Enviado desde duxer.com.ar · ${new Date().toLocaleString('es-AR', { timeZone: 'America/Argentina/Buenos_Aires' })}
+            Enviado desde duxer.com.ar · ${new Date().toLocaleString('es-MX', { timeZone: 'America/Cancun' })}
           </p>
         </div>
       `,
