@@ -1,25 +1,75 @@
 ---
+
 ---
 
-<section class="bg-[#060606] py-24 px-6 border-y border-white/[0.05]" aria-label="Garantía de 2 años">
-  <div class="max-w-[600px] mx-auto flex flex-col items-center text-center gap-8">
-    <div class="w-[260px] h-[260px] flex items-center justify-center reveal">
+<section
+  class="relative py-24 px-6 overflow-hidden"
+  aria-label="Garantía de 2 años"
+>
+  <!-- Background image -->
+  <div class="absolute inset-0 w-full h-full">
+    <img
+      src="/duxer-bg-03.png"
+      alt=""
+      width="1400"
+      height="600"
+      loading="lazy"
+      aria-hidden="true"
+      class="w-full h-full object-cover pointer-events-none"
+    />
+    <!-- Top fade -->
+    <div
+      class="absolute inset-x-0 top-0 h-[25%] pointer-events-none"
+      style="background: linear-gradient(to bottom, #060606 0%, transparent 100%);"
+    >
+    </div>
+    <!-- Bottom fade -->
+    <div
+      class="absolute inset-x-0 bottom-0 h-[25%] pointer-events-none"
+      style="background: linear-gradient(to top, #060606 0%, transparent 100%);"
+    >
+    </div>
+    <!-- Left fade -->
+    <div
+      class="absolute inset-y-0 left-0 w-[20%] pointer-events-none"
+      style="background: linear-gradient(to right, #060606 0%, transparent 100%);"
+    >
+    </div>
+    <!-- Right fade -->
+    <div
+      class="absolute inset-y-0 right-0 w-[20%] pointer-events-none"
+      style="background: linear-gradient(to left, #060606 0%, transparent 100%);"
+    >
+    </div>
+    <!-- Dark overlay for contrast -->
+    <div class="absolute inset-0 bg-black/55 pointer-events-none"></div>
+  </div>
+
+  <div
+    class="relative z-10 max-w-269 mx-auto flex flex-col items-center text-center gap-8"
+  >
+    <div class="flex items-center justify-center reveal">
       <img
-        src="/garantia.png"
+        src="/garantia.webp"
         alt="Sello oficial de Garantía 2 Años DUXER"
-        width="300"
-        height="300"
-        class="w-[260px] h-[260px] object-contain mix-blend-screen"
+        width="450"
+        height="384"
+        class="object-contain mix-blend-screen"
         loading="lazy"
       />
     </div>
 
     <div class="flex flex-col gap-3 reveal">
-      <p class="font-heading font-bold text-[1.2rem] tracking-[0.04em] text-white uppercase leading-[1.4] m-0">
+      <p
+        class="font-heading font-bold text-[28px] tracking-[0.04em] text-white uppercase leading-[1.4] m-0"
+      >
         Todos nuestros equipos cuentan con garantía de 2 años.
       </p>
-      <p class="font-body text-[0.9rem] text-white/45 leading-[1.75] max-w-[420px] mx-auto m-0">
-        Respaldamos la calidad, durabilidad y rendimiento de cada solución que ofrecemos.
+      <p
+        class="font-body text-[0.9rem] text-white leading-[1.75] max-w-105 mx-auto m-0"
+      >
+        Respaldamos la calidad, durabilidad y rendimiento de cada solución que
+        ofrecemos.
       </p>
     </div>
   </div>
