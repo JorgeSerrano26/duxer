@@ -2,29 +2,29 @@
 const products = [
   {
     name: "Lavado Industrial",
-    desc: "Lavadoras de barrera sanitaria de alta capacidad, diseñadas para trabajo continuo con máxima eficiencia.",
-    specs: "De 18 kg hasta 120 kg",
+    subtitle: "Lavado industrial a tu alcance",
+    desc: "Lavadoras industriales disponibles en capacidades de 15 kg, 30 kg, 35 kg, 50 kg y hasta 100 kg.",
     image: "/lavado_industrial.png",
     alt: "Lavadora industrial de barrera sanitaria DUXER, acero inoxidable",
   },
   {
     name: "Secado Inteligente",
-    desc: "Secadoras industriales de alta eficiencia energética con control digital de temperatura y humedad.",
-    specs: "Ciclos de secado optimizados",
+    subtitle: "Soluciones de secado inteligente",
+    desc: "Secadoras industriales de 15 kg a 100 kg diseñadas para manejar grandes volúmenes con precisión y velocidad.",
     image: "/secado_inteligente.png",
     alt: "Secadora industrial inteligente DUXER de alta eficiencia",
   },
   {
     name: "Acabado Profesional",
-    desc: "Equipos de acabado para ropa y lencería con tecnología de última generación y resultados impecables.",
-    specs: "Pliegue y clasificación automática",
+    subtitle: "Ofrecemos equipos de acuerdo a las necesidades de su producción",
+    desc: "Equipos industriales de distintos tamaños y sistemas de calentamiento (vapor, eléctrico o gas).",
     image: "/acabado_profesional.png",
     alt: "Equipo de acabado profesional DUXER para lavandería industrial",
   },
   {
     name: "Planchado",
+    subtitle: "Acabados profesionales de alto rendimiento",
     desc: "Calandrias y planchas industriales para sábanas, manteles y uniformes con acabado perfecto.",
-    specs: "Hasta 600 m² / hora",
     image: "/planchado.png",
     alt: "Calandria industrial DUXER para planchado profesional de lencería",
   },
@@ -59,46 +59,45 @@ const products = [
       >
         Líneas de producto
       </h2>
-      <p
-        class="font-body text-[0.85rem] text-white/[0.38] max-w-[380px] mx-auto leading-[1.6]"
-      >
-        Equipos de alta calidad para cada etapa del proceso de lavandería
-        industrial.
-      </p>
     </header>
 
     <div class="grid grid-cols-1 min-[480px]:grid-cols-2 lg:grid-cols-4 gap-4">
       {
         products.map((p) => (
-          <article class="bg-[#131313] border border-white/[0.07] overflow-hidden flex flex-col transition-[border-color,transform] duration-300 hover:border-white/20 hover:-translate-y-[4px] group reveal">
-            <div class="relative overflow-hidden bg-[#1a1a1a]">
+          <article class="rounded-2xl overflow-hidden flex flex-col text-center reveal border border-white/80" style="background: linear-gradient(to top, #1b1b1b, #838383);">
+            <!-- Card header -->
+            <div class="px-5 pt-5 pb-3">
+              <h3 class="font-heading font-black text-xl tracking-[0.02em] uppercase text-white leading-[1.1] mb-1">
+                {p.name}
+              </h3>
+              <p class="font-body text-[0.72rem] leading-[1.4] text-white/90">
+                {p.subtitle}
+              </p>
+            </div>
+
+            <!-- Product image -->
+            <div class="flex-1 flex items-center justify-center px-4 py-2">
               <img
                 src={p.image}
                 alt={p.alt}
                 width="300"
                 height="220"
                 loading="lazy"
-                class="w-full h-[170px] object-contain block p-4 transition-transform duration-500 group-hover:scale-[1.06]"
+                class="w-full max-h-[180px] object-contain"
               />
-              <span class="absolute top-[0.6rem] left-[0.6rem] font-heading font-bold text-[0.52rem] tracking-[0.2em] uppercase text-gold/80 bg-ink/[0.88] border border-gold/20 px-[0.4rem] py-[0.18rem]">
-                DUXER
-              </span>
             </div>
-            <div class="px-[1.1rem] pt-4 pb-5 flex flex-col flex-1">
-              <h3 class="font-heading font-extrabold text-[0.95rem] tracking-[0.06em] uppercase text-white mb-[0.45rem]">
-                {p.name}
-              </h3>
-              <p class="font-body text-[0.73rem] leading-[1.6] text-white/40 mb-2 flex-1">
+
+            <!-- Card footer -->
+            <div class="px-5 pb-5 pt-3 flex flex-col gap-3">
+              <p class="font-body text-[0.73rem] leading-[1.65] text-white">
                 {p.desc}
-              </p>
-              <p class="font-body text-[0.67rem] text-gold/65 tracking-[0.03em] mb-3.5">
-                {p.specs}
               </p>
               <a
                 href="#contacto"
-                class="font-heading font-bold text-[0.68rem] tracking-[0.12em] uppercase text-white/55 no-underline border border-white/[0.1] p-[0.45rem] text-center transition-[background,color,border-color] duration-200 block hover:bg-white/[0.07] hover:text-white hover:border-white/[0.28]"
+                class="btn-fill font-heading font-bold text-[0.7rem] rounded-sm tracking-[0.1em] uppercase text-white no-underline border border-white/25 py-2.5 text-center block relative overflow-hidden"
               >
-                Ver detalles
+                <span class="btn-fill__bg absolute inset-0" aria-hidden="true"></span>
+                <span class="relative z-10">Ver equipos</span>
               </a>
             </div>
           </article>
@@ -107,3 +106,32 @@ const products = [
     </div>
   </div>
 </section>
+
+<style>
+  .btn-fill__bg {
+    background: rgba(255, 255, 255, 0.12);
+    transform: translateX(-105%);
+  }
+</style>
+
+<script>
+  document.querySelectorAll<HTMLElement>('.btn-fill').forEach((btn) => {
+    const bg = btn.querySelector<HTMLElement>('.btn-fill__bg');
+    if (!bg) return;
+
+    btn.addEventListener('mouseenter', () => {
+      bg.style.transition = 'transform 0.35s ease';
+      bg.style.transform = 'translateX(0)';
+    });
+
+    btn.addEventListener('mouseleave', () => {
+      bg.style.transition = 'transform 0.35s ease';
+      bg.style.transform = 'translateX(105%)';
+
+      bg.addEventListener('transitionend', () => {
+        bg.style.transition = 'none';
+        bg.style.transform = 'translateX(-105%)';
+      }, { once: true });
+    });
+  });
+</script>
