@@ -1,0 +1,186 @@
+---
+import Footer from "../components/Footer.astro";
+import Nav from "../components/Nav.astro";
+import Layout from "../layouts/Layout.astro";
+import "../styles/global.css";
+---
+
+<Layout
+  title="Declaración de Accesibilidad | DUXER Equipo Industrial"
+  description="Declaración de accesibilidad web de DUXER Equipo Industrial, conforme a las pautas WCAG 2.1."
+>
+  <Nav />
+  <main class="max-w-190 mx-auto px-6 py-20">
+    <h1
+      class="font-heading font-black text-[clamp(2rem,5vw,3.5rem)] leading-[0.95] text-white uppercase tracking-[0.04em] mb-4"
+    >
+      Declaración de Accesibilidad
+    </h1>
+
+    <div class="w-9 h-0.5 bg-white/20 mb-10"></div>
+
+    <!-- ⚠️ AVISO: El contenido de esta página debe ser revisado y reemplazado antes de publicar. -->
+
+    <div
+      class="flex flex-col gap-8 font-body text-[0.9rem] leading-[1.85] text-white/55"
+    >
+      <div
+        class="border border-amber-500/30 bg-amber-500/5 px-5 py-4 text-amber-400/80 text-[0.8rem] leading-[1.6]"
+      >
+        ⚠️ <strong>Texto de ejemplo.</strong> Este contenido debe ser revisado y completado
+        con los datos reales de la empresa antes de publicar el sitio.
+      </div>
+
+      <p class="text-white/30 text-[0.75rem] uppercase tracking-[0.15em]">
+        Última actualización: [FECHA]
+      </p>
+
+      <section>
+        <h2
+          class="font-heading font-bold text-[1rem] tracking-[0.08em] uppercase text-white mb-3"
+        >
+          1. Compromiso con la accesibilidad
+        </h2>
+        <p>
+          <strong class="text-white/80">DUXER Equipo Industrial</strong> se compromete
+          a garantizar la accesibilidad de su sitio web para todas las personas, incluidas
+          aquellas con discapacidades visuales, auditivas, motoras o cognitivas.
+        </p>
+        <p class="mt-3">
+          Nos esforzamos por cumplir con las Pautas de Accesibilidad para el
+          Contenido Web (WCAG) 2.1, nivel AA, publicadas por el World Wide Web
+          Consortium (W3C).
+        </p>
+      </section>
+
+      <section>
+        <h2
+          class="font-heading font-bold text-[1rem] tracking-[0.08em] uppercase text-white mb-3"
+        >
+          2. Estado de conformidad
+        </h2>
+        <p>
+          Este sitio web es <strong class="text-white/80"
+            >[parcialmente conforme / conforme / no conforme]</strong
+          > con las WCAG 2.1 nivel AA. [Describir brevemente el estado real de conformidad
+          y las áreas en proceso de mejora.]
+        </p>
+      </section>
+
+      <section>
+        <h2
+          class="font-heading font-bold text-[1rem] tracking-[0.08em] uppercase text-white mb-3"
+        >
+          3. Medidas adoptadas
+        </h2>
+        <p>
+          Para mejorar la accesibilidad hemos implementado, entre otras medidas:
+        </p>
+        <ul
+          class="list-disc list-inside mt-3 flex flex-col gap-1.5 text-white/50"
+        >
+          <li>
+            Estructura semántica con HTML5 (encabezados, landmarks, listas)
+          </li>
+          <li>Texto alternativo en todas las imágenes informativas</li>
+          <li>Navegación completa mediante teclado</li>
+          <li>Contraste de color suficiente entre texto y fondo</li>
+          <li>
+            Etiquetas asociadas a todos los campos del formulario de contacto
+          </li>
+          <li>Sin contenido que parpadee más de tres veces por segundo</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2
+          class="font-heading font-bold text-[1rem] tracking-[0.08em] uppercase text-white mb-3"
+        >
+          4. Limitaciones conocidas
+        </h2>
+        <p>
+          [Indicar aquí cualquier limitación de accesibilidad conocida, la razón
+          y la alternativa disponible para el usuario. Si no existen
+          limitaciones conocidas, eliminar esta sección.]
+        </p>
+      </section>
+
+      <section>
+        <h2
+          class="font-heading font-bold text-[1rem] tracking-[0.08em] uppercase text-white mb-3"
+        >
+          5. Tecnologías de apoyo compatibles
+        </h2>
+        <p>
+          Este sitio ha sido diseñado para ser compatible con las siguientes
+          tecnologías de apoyo:
+        </p>
+        <ul
+          class="list-disc list-inside mt-3 flex flex-col gap-1.5 text-white/50"
+        >
+          <li>Lectores de pantalla (NVDA, JAWS, VoiceOver)</li>
+          <li>
+            Ampliación de texto hasta un 200% sin pérdida de funcionalidad
+          </li>
+          <li>Navegación por teclado</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2
+          class="font-heading font-bold text-[1rem] tracking-[0.08em] uppercase text-white mb-3"
+        >
+          6. Contacto y retroalimentación
+        </h2>
+        <p>
+          Si encuentra alguna barrera de accesibilidad en este sitio o necesita
+          la información en un formato alternativo, contáctenos:
+        </p>
+        <ul class="list-none mt-3 flex flex-col gap-1.5 text-white/50">
+          <li>
+            Correo: <a
+              href="mailto:info@duxer.com.mx"
+              class="text-white/75 hover:text-white underline underline-offset-2 transition-colors duration-200"
+              >info@duxer.com.mx</a
+            >
+          </li>
+          <li>
+            Teléfono: <a
+              href="tel:+529841885279"
+              class="text-white/75 hover:text-white underline underline-offset-2 transition-colors duration-200"
+              >+52 984 188 5279</a
+            >
+          </li>
+        </ul>
+        <p class="mt-3">
+          Nos comprometemos a responder en un plazo máximo de <strong
+            class="text-white/80">[X días hábiles]</strong
+          >.
+        </p>
+      </section>
+
+      <section>
+        <h2
+          class="font-heading font-bold text-[1rem] tracking-[0.08em] uppercase text-white mb-3"
+        >
+          7. Revisión y actualización
+        </h2>
+        <p>
+          Esta declaración es revisada periódicamente y se actualiza cuando se
+          realizan cambios significativos en el sitio web o en los estándares de
+          accesibilidad aplicables.
+        </p>
+      </section>
+    </div>
+
+    <div class="mt-14 pt-8 border-t border-white/[0.06]">
+      <a
+        href="/"
+        class="font-heading font-bold text-[0.75rem] tracking-[0.14em] uppercase text-white/40 hover:text-white/80 transition-colors duration-200 no-underline"
+      >
+        ← Volver al inicio
+      </a>
+    </div>
+  </main>
+  <Footer />
+</Layout>
