@@ -1,12 +1,20 @@
 ---
-const siteKey = import.meta.env.PUBLIC_RECAPTCHA_SITE_KEY ?? '';
+const siteKey = import.meta.env.PUBLIC_RECAPTCHA_SITE_KEY ?? "";
 ---
 
-<section id="contacto" class="bg-paper py-[5.5rem] px-6" aria-label="Formulario de contacto">
+<section
+  id="contacto"
+  class="bg-paper py-[5.5rem] px-6"
+  aria-label="Formulario de contacto"
+>
   <div class="max-w-[540px] mx-auto">
     <!-- Header -->
     <header class="text-center mb-[2.75rem] reveal">
-      <h2 class="font-heading font-black text-[clamp(2.5rem,6vw,4.25rem)] leading-none text-[#0a0a0a] uppercase tracking-[0.04em]">Contáctanos</h2>
+      <h2
+        class="font-heading font-black text-[clamp(2.5rem,6vw,4.25rem)] leading-none text-[#0a0a0a] uppercase tracking-[0.04em]"
+      >
+        Contáctanos
+      </h2>
     </header>
 
     <!-- Form -->
@@ -17,142 +25,211 @@ const siteKey = import.meta.env.PUBLIC_RECAPTCHA_SITE_KEY ?? '';
       aria-label="Formulario de solicitud de información"
     >
       <div class="flex flex-col">
-        <label for="email" class="font-body text-[0.65rem] tracking-[0.15em] uppercase text-black/35 mb-[0.3rem]">Email</label>
-        <input type="email" id="email" name="email" placeholder="tu@email.com"
+        <label
+          for="email"
+          class="font-body text-[0.65rem] tracking-[0.15em] uppercase text-black/35 mb-[0.3rem]"
+          >Email</label
+        >
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="tu@email.com"
           class="bg-transparent border-0 border-b border-black/20 py-[0.55rem] px-0 font-body text-[0.875rem] text-[#111] outline-none transition-[border-color] duration-200 w-full placeholder:text-black/30 placeholder:text-[0.85rem] focus:border-b-black/60"
-          autocomplete="email" required aria-required="true"
-          aria-describedby="email-err"/>
+          autocomplete="email"
+          required
+          aria-required="true"
+          aria-describedby="email-err"
+        />
         <p id="email-err" class="field-err" role="alert" aria-live="polite"></p>
       </div>
 
       <div class="flex flex-col">
-        <label for="name" class="font-body text-[0.65rem] tracking-[0.15em] uppercase text-black/35 mb-[0.3rem]">Nombre</label>
-        <input type="text" id="name" name="name" placeholder="Tu nombre completo"
+        <label
+          for="name"
+          class="font-body text-[0.65rem] tracking-[0.15em] uppercase text-black/35 mb-[0.3rem]"
+          >Nombre</label
+        >
+        <input
+          type="text"
+          id="name"
+          name="name"
+          placeholder="Tu nombre completo"
           class="bg-transparent border-0 border-b border-black/20 py-[0.55rem] px-0 font-body text-[0.875rem] text-[#111] outline-none transition-[border-color] duration-200 w-full placeholder:text-black/30 placeholder:text-[0.85rem] focus:border-b-black/60"
-          autocomplete="name" required aria-required="true"
-          aria-describedby="name-err"/>
+          autocomplete="name"
+          required
+          aria-required="true"
+          aria-describedby="name-err"
+        />
         <p id="name-err" class="field-err" role="alert" aria-live="polite"></p>
       </div>
 
       <div class="flex flex-col">
-        <label for="company" class="font-body text-[0.65rem] tracking-[0.15em] uppercase text-black/35 mb-[0.3rem]">Nombre de la compañía</label>
-        <input type="text" id="company" name="company" placeholder="Tu empresa"
+        <label
+          for="company"
+          class="font-body text-[0.65rem] tracking-[0.15em] uppercase text-black/35 mb-[0.3rem]"
+          >Nombre de la compañía</label
+        >
+        <input
+          type="text"
+          id="company"
+          name="company"
+          placeholder="Tu empresa"
           class="bg-transparent border-0 border-b border-black/20 py-[0.55rem] px-0 font-body text-[0.875rem] text-[#111] outline-none transition-[border-color] duration-200 w-full placeholder:text-black/30 placeholder:text-[0.85rem] focus:border-b-black/60"
           autocomplete="organization"
-          aria-describedby="company-err"/>
-        <p id="company-err" class="field-err" role="alert" aria-live="polite"></p>
+          aria-describedby="company-err"
+        />
+        <p id="company-err" class="field-err" role="alert" aria-live="polite">
+        </p>
       </div>
 
       <div class="flex flex-col">
-        <label for="message" class="font-body text-[0.65rem] tracking-[0.15em] uppercase text-black/35 mb-[0.3rem]">Mensaje</label>
-        <textarea id="message" name="message"
+        <label
+          for="message"
+          class="font-body text-[0.65rem] tracking-[0.15em] uppercase text-black/35 mb-[0.3rem]"
+          >Mensaje</label
+        >
+        <textarea
+          id="message"
+          name="message"
           placeholder="Cuéntanos sobre tu proyecto o necesidad..."
           class="bg-transparent border-0 border-b border-black/20 py-[0.55rem] px-0 font-body text-[0.875rem] text-[#111] outline-none transition-[border-color] duration-200 w-full placeholder:text-black/30 placeholder:text-[0.85rem] focus:border-b-black/60 resize-none min-h-[80px]"
-          rows="4" required aria-required="true"
+          rows="4"
+          required
+          aria-required="true"
           aria-describedby="message-err"></textarea>
-        <p id="message-err" class="field-err" role="alert" aria-live="polite"></p>
+        <p id="message-err" class="field-err" role="alert" aria-live="polite">
+        </p>
       </div>
 
-      <input type="hidden" id="recaptcha-token" name="recaptchaToken"/>
+      <input type="hidden" id="recaptcha-token" name="recaptchaToken" />
 
-      <div id="form-msg" class="form-msg" role="status" aria-live="polite"></div>
+      <div id="form-msg" class="form-msg" role="status" aria-live="polite">
+      </div>
 
-      <button type="submit" id="submit-btn" class="font-heading font-bold text-[0.9rem] tracking-[0.12em] uppercase text-white bg-[#111] border border-white/[0.08] py-4 px-8 cursor-pointer w-full transition-[background,transform] duration-200 rounded-[2px] enabled:hover:bg-[#222] enabled:hover:-translate-y-px disabled:opacity-60 disabled:cursor-not-allowed">
+      <button
+        type="submit"
+        id="submit-btn"
+        class="font-heading font-bold text-[0.9rem] tracking-[0.12em] uppercase text-white bg-[#111] border border-white/[0.08] py-4 px-8 cursor-pointer w-full transition-[background,transform] duration-200 rounded-[2px] enabled:hover:bg-[#222] enabled:hover:-translate-y-px disabled:opacity-60 disabled:cursor-not-allowed"
+      >
         Solicitar información
       </button>
 
-      <p class="font-body text-[0.68rem] text-black/[0.28] text-center leading-[1.5]">
-        Al enviar aceptas nuestra <a href="#" class="text-black/45 underline">Política de Privacidad</a>.
-        Sitio protegido por reCAPTCHA.
+      <p
+        class="font-body text-[0.68rem] text-black/[0.28] text-center leading-normal"
+      >
+        Al enviar aceptas nuestra <a
+          href="/politica-de-privacidad"
+          class="text-black/45 underline">Política de Privacidad</a
+        >. Sitio protegido por reCAPTCHA.
       </p>
     </form>
   </div>
 </section>
 
-{siteKey && (
-  <script src={`https://www.google.com/recaptcha/api.js?render=${siteKey}`}></script>
-)}
+{
+  siteKey && (
+    <script src={`https://www.google.com/recaptcha/api.js?render=${siteKey}`} />
+  )
+}
 
 <script is:inline define:vars={{ siteKey }}>
-  const form = document.getElementById('contact-form');
-  const submitBtn = document.getElementById('submit-btn');
-  const formMsg = document.getElementById('form-msg');
+  const form = document.getElementById("contact-form");
+  const submitBtn = document.getElementById("submit-btn");
+  const formMsg = document.getElementById("form-msg");
 
   function showErr(id, msg) {
-    const el = document.getElementById(id + '-err');
-    if (el) { el.textContent = msg; el.className = 'field-err' + (msg ? ' show' : ''); }
+    const el = document.getElementById(id + "-err");
+    if (el) {
+      el.textContent = msg;
+      el.className = "field-err" + (msg ? " show" : "");
+    }
   }
   function clearErrors() {
-    ['email','name','company','message'].forEach(f => showErr(f, ''));
+    ["email", "name", "company", "message"].forEach((f) => showErr(f, ""));
   }
-  function isEmail(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
+  function isEmail(v) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+  }
 
   function validate(d) {
     let ok = true;
     clearErrors();
-    if (!isEmail(d.email)) { showErr('email', 'Ingresa un email válido.'); ok = false; }
-    if (d.name.length < 2) { showErr('name', 'Mínimo 2 caracteres.'); ok = false; }
-    if (d.message.length < 10) { showErr('message', 'Mínimo 10 caracteres.'); ok = false; }
+    if (!isEmail(d.email)) {
+      showErr("email", "Ingresa un email válido.");
+      ok = false;
+    }
+    if (d.name.length < 2) {
+      showErr("name", "Mínimo 2 caracteres.");
+      ok = false;
+    }
+    if (d.message.length < 10) {
+      showErr("message", "Mínimo 10 caracteres.");
+      ok = false;
+    }
     return ok;
   }
 
   function setMsg(text, type) {
     formMsg.textContent = text;
-    formMsg.className = 'form-msg show ' + type;
+    formMsg.className = "form-msg show " + type;
   }
 
   async function getCaptcha() {
-    if (!siteKey || typeof grecaptcha === 'undefined') return '';
-    return new Promise(res => {
-      grecaptcha.ready(() => grecaptcha.execute(siteKey, { action: 'contact' }).then(res));
+    if (!siteKey || typeof grecaptcha === "undefined") return "";
+    return new Promise((res) => {
+      grecaptcha.ready(() =>
+        grecaptcha.execute(siteKey, { action: "contact" }).then(res),
+      );
     });
   }
 
-  form?.addEventListener('submit', async (e) => {
+  form?.addEventListener("submit", async (e) => {
     e.preventDefault();
     const fd = new FormData(form);
     const d = {
-      email: (fd.get('email') || '').toString().trim(),
-      name: (fd.get('name') || '').toString().trim(),
-      company: (fd.get('company') || '').toString().trim(),
-      message: (fd.get('message') || '').toString().trim(),
-      recaptchaToken: '',
+      email: (fd.get("email") || "").toString().trim(),
+      name: (fd.get("name") || "").toString().trim(),
+      company: (fd.get("company") || "").toString().trim(),
+      message: (fd.get("message") || "").toString().trim(),
+      recaptchaToken: "",
     };
     if (!validate(d)) return;
 
     submitBtn.disabled = true;
-    submitBtn.textContent = 'Enviando...';
-    formMsg.className = 'form-msg';
+    submitBtn.textContent = "Enviando...";
+    formMsg.className = "form-msg";
 
     try {
       d.recaptchaToken = await getCaptcha();
-      const res = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(d),
       });
       const result = await res.json();
       if (res.ok && result.success) {
-        setMsg('¡Mensaje enviado! Te contactaremos a la brevedad.', 'success');
-        form.reset(); clearErrors();
+        setMsg("¡Mensaje enviado! Te contactaremos a la brevedad.", "success");
+        form.reset();
+        clearErrors();
       } else {
         const msg = result.errors
-          ? Object.values(result.errors).flat().join(' ')
-          : result.message || 'Ocurrió un error. Inténtalo nuevamente.';
-        setMsg(msg, 'error');
+          ? Object.values(result.errors).flat().join(" ")
+          : result.message || "Ocurrió un error. Inténtalo nuevamente.";
+        setMsg(msg, "error");
       }
     } catch {
-      setMsg('Error de conexión. Verifica tu internet.', 'error');
+      setMsg("Error de conexión. Verifica tu internet.", "error");
     } finally {
       submitBtn.disabled = false;
-      submitBtn.textContent = 'Solicitar información';
+      submitBtn.textContent = "Solicitar información";
     }
   });
 </script>
 
 <style>
   .field-err {
-    font-family: 'Barlow', sans-serif;
+    font-family: "Barlow", sans-serif;
     font-size: 0.72rem;
     color: #c0392b;
     margin-top: 0.25rem;
@@ -165,7 +242,7 @@ const siteKey = import.meta.env.PUBLIC_RECAPTCHA_SITE_KEY ?? '';
 
   .form-msg {
     padding: 0.875rem 1rem;
-    font-family: 'Barlow', sans-serif;
+    font-family: "Barlow", sans-serif;
     font-size: 0.85rem;
     text-align: center;
     display: none;
