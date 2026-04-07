@@ -9,7 +9,7 @@ const services = [
   },
   {
     title: 'Venta y Soporte',
-    body: 'Venta de lavadoras, secadoras y equipos industriales de marca propia. Equipos de alta eficiencia diseñados para trabajo continuo, con respaldo técnico especializado y garantía directa.',
+    body: 'Venta de lavadoras, secadoras y equipos industriales. Equipos de alta eficiencia diseñados para trabajo continuo, con respaldo técnico especializado y garantía directa.',
     detail: 'Soporte postventa para asegurar el rendimiento óptimo de tu operación.',
     image: '/solution-02.jpg',
     alt: 'Asesor DUXER brindando soporte técnico especializado a cliente',
@@ -28,7 +28,7 @@ const services = [
       </p>
     </header>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-[900px] mx-auto">
       {services.map((s) => (
         <article class="rounded-3xl overflow-hidden flex flex-col reveal" style="min-height: 520px;">
           <!-- Top 50%: image -->
@@ -45,13 +45,13 @@ const services = [
 
           <!-- Bottom 50%: dark content -->
           <div class="flex-1 bg-[#0f0f0f] px-8 py-8 flex flex-col justify-center">
-            <h3 class="font-heading font-black text-[1.4rem] tracking-[0.03em] uppercase text-white mb-4 leading-[1.1]">
+            <h3 class="font-heading font-black text-[1.6rem] tracking-[0.03em] uppercase text-white mb-4 leading-[1.1]">
               {s.title}
             </h3>
-            <p class="font-body text-[0.85rem] leading-[1.75] text-white/50 mb-3">
+            <p class="font-body text-[1rem] leading-[1.75] text-white/50 mb-3">
               {s.body}
             </p>
-            <p class="font-body text-[0.78rem] italic text-white/30">
+            <p class="font-body text-[0.9rem] italic text-white/30">
               {s.detail}
             </p>
           </div>

@@ -6,29 +6,47 @@
   <div class="absolute inset-0 bg-[linear-gradient(100deg,rgba(6,6,6,1)_0%,rgba(6,6,6,0.92)_40%,rgba(6,6,6,0.45)_70%,rgba(6,6,6,0.1)_100%)] max-md:bg-[rgba(6,6,6,0.85)]" aria-hidden="true"></div>
   <div class="absolute bottom-0 left-0 right-0 h-[200px] bg-[linear-gradient(to_top,#060606,transparent)] pointer-events-none" aria-hidden="true"></div>
 
-  <div class="relative z-[2] w-full max-w-[1200px] mx-auto px-6 pt-36 pb-20">
-    <p class="flex items-center gap-3 font-heading font-semibold text-[0.68rem] tracking-[0.22em] uppercase text-gold/90 mb-6">
-      <span class="inline-block w-[30px] h-px bg-gold/55 shrink-0"></span>
-      Equipo Industrial · Playa del Carmen, MX
-    </p>
+  <div class="relative z-[2] w-full max-w-[1200px] mx-auto px-6 pt-36 pb-20 flex items-center gap-12">
+    <!-- Left: text content -->
+    <div class="flex-1 min-w-0">
+      <p class="flex items-center gap-3 font-heading font-semibold text-[0.68rem] tracking-[0.22em] uppercase text-gold/90 mb-6">
+        <span class="inline-block w-[30px] h-px bg-gold/55 shrink-0"></span>
+        Equipo Industrial · Playa del Carmen, MX
+      </p>
 
-    <h1 class="font-heading font-black text-[clamp(2.6rem,5.5vw,5rem)] leading-[1.02] text-white uppercase tracking-[0.01em] max-w-[600px] mb-6 max-md:max-w-full">
-      Equipos industriales de lavandería, con garantía de calidad y atención.
-    </h1>
+      <h1 class="font-heading font-black text-[clamp(2.6rem,5.5vw,5rem)] leading-[1.02] text-white uppercase tracking-[0.01em] max-w-[600px] mb-6 max-md:max-w-full">
+        Equipos industriales de lavandería, con garantía de calidad y atención.
+      </h1>
 
-    <p class="font-body text-[clamp(0.85rem,1.3vw,0.98rem)] leading-[1.78] text-white/[0.52] max-w-[460px] mb-10 max-md:max-w-full">
-      Distribución de lavadoras de barrera sanitaria y equipos para hoteles,
-      clubes deportivos, maquinadoras, constructoras. Contamos con
-      refacciones y soporte especializado.
-    </p>
+      <p class="font-body text-[clamp(0.85rem,1.3vw,0.98rem)] leading-[1.78] text-white/[0.52] max-w-[460px] mb-10 max-md:max-w-full">
+        Distribución de equipo industrial para lavanderías, con servicio 360, refacción,
+        soporte especializado y asesoría profesional.
+      </p>
 
-    <div class="flex gap-3.5 flex-wrap items-center">
-      <a href="#contacto" class="font-heading font-bold text-[0.85rem] tracking-[0.1em] uppercase text-white no-underline bg-white/10 border border-white/[0.38] px-7 py-3 transition-[background,border-color] duration-200 hover:bg-white/20 hover:border-white/70">
-        Solicitar cotización
-      </a>
-      <a href="#soluciones" class="font-heading font-bold text-[0.85rem] tracking-[0.1em] uppercase text-white/65 no-underline border border-white/[0.18] px-7 py-3 transition-[color,border-color,background] duration-200 hover:text-white hover:border-white/45 hover:bg-white/[0.06]">
-        Ver soluciones
-      </a>
+      <div class="flex gap-3.5 flex-wrap items-center max-md:flex-col">
+        <a href="#contacto" class="font-heading font-bold text-[0.85rem] tracking-[0.1em] uppercase text-white no-underline bg-white/10 border border-white/[0.38] px-7 py-3 transition-[background,border-color] duration-200 hover:bg-white/20 hover:border-white/70 max-md:w-full max-md:text-center">
+          Solicitar cotización
+        </a>
+        <a href="#soluciones" class="font-heading font-bold text-[0.85rem] tracking-[0.1em] uppercase text-white/65 no-underline border border-white/[0.18] px-7 py-3 transition-[color,border-color,background] duration-200 hover:text-white hover:border-white/45 hover:bg-white/[0.06] max-md:w-full max-md:text-center">
+          Ver soluciones
+        </a>
+      </div>
+    </div>
+
+    <!-- Right: equipment collage (hidden on mobile) -->
+    <div class="hidden lg:grid grid-cols-2 gap-2.5 w-[420px] shrink-0">
+      <div class="rounded-xl overflow-hidden aspect-[4/3] bg-white/5">
+        <img src="/lavado_industrial.png" alt="Lavadoras industriales DUXER" width="210" height="157" loading="eager" class="w-full h-full object-cover" />
+      </div>
+      <div class="rounded-xl overflow-hidden aspect-[4/3] bg-white/5">
+        <img src="/secado_inteligente.png" alt="Secadoras industriales DUXER" width="210" height="157" loading="eager" class="w-full h-full object-cover" />
+      </div>
+      <div class="rounded-xl overflow-hidden aspect-[4/3] bg-white/5">
+        <img src="/acabado_profesional.png" alt="Acabado profesional DUXER" width="210" height="157" loading="eager" class="w-full h-full object-cover" />
+      </div>
+      <div class="rounded-xl overflow-hidden aspect-[4/3] bg-white/5">
+        <img src="/planchado.png" alt="Planchado industrial DUXER" width="210" height="157" loading="eager" class="w-full h-full object-cover" />
+      </div>
     </div>
   </div>
 </section>

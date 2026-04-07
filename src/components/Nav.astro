@@ -46,7 +46,7 @@ const navLinks = [
 
 <div
   id="mobile-overlay"
-  class="mobile-overlay flex fixed inset-0 bg-ink z-[200] flex-col items-center justify-center gap-8 -translate-x-full invisible"
+  class="mobile-overlay flex fixed inset-0 bg-ink z-[200] flex-col items-center justify-center gap-8"
   role="dialog"
   aria-modal="true"
   aria-label="Menú de navegación"
@@ -77,18 +77,16 @@ const navLinks = [
     border-bottom: 1px solid rgba(255, 255, 255, 0.07);
   }
 
-  .mobile-overlay.is-open {
-    transform: translateX(0);
-    visibility: visible;
-    transition:
-      transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
-      visibility 0s linear 0s;
+  .mobile-overlay {
+    transform: translateX(-100%);
+    pointer-events: none;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
-  .mobile-overlay {
-    transition:
-      transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
-      visibility 0s linear 0.4s;
+  .mobile-overlay.is-open {
+    transform: translateX(0);
+    pointer-events: auto;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
 </style>
 
