@@ -6,15 +6,15 @@ interface Props {
 }
 
 const {
-  title = 'DUXER | Equipos Industriales de Lavandería',
-  description = 'Distribución de lavadoras de barrera sanitaria y equipos para hoteles, clubes deportivos, maquinadoras y constructoras en Playa del Carmen, MX. Garantía de 2 años, refacciones y soporte especializado.',
-  ogImage = '/og-image.jpg',
+  title = "DUXER | Equipos Industriales de Lavandería",
+  description = "Distribución de lavadoras de barrera sanitaria y equipos para hoteles, clubes deportivos, maquinadoras y constructoras en Playa del Carmen, MX. Garantía de 2 años, refacciones y soporte especializado.",
+  ogImage = "/og-image.jpg",
 } = Astro.props;
 
-const siteUrl = 'https://duxer.com.ar';
+const siteUrl = "https://duxer.com.ar";
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
@@ -47,7 +47,6 @@ const siteUrl = 'https://duxer.com.ar';
     <meta name="geo.placename" content="Playa del Carmen" />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
 
     <!-- Fonts -->
@@ -65,7 +64,7 @@ const siteUrl = 'https://duxer.com.ar';
         "@type": "Organization",
         "name": "DUXER Equipo Industrial",
         "url": "https://duxer.com.ar",
-        "logo": "https://duxer.com.ar/favicon.svg",
+        "logo": "https://duxer.com.ar/favicon.ico",
         "description": "Distribución de equipos industriales de lavandería con garantía de calidad y atención. Lavadoras de barrera sanitaria para hoteles, clubes deportivos, maquinadoras y constructoras.",
         "address": {
           "@type": "PostalAddress",
@@ -79,7 +78,13 @@ const siteUrl = 'https://duxer.com.ar';
           "availableLanguage": "Spanish",
           "hoursAvailable": {
             "@type": "OpeningHoursSpecification",
-            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+            "dayOfWeek": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday"
+            ],
             "opens": "09:00",
             "closes": "18:00"
           }
@@ -88,10 +93,31 @@ const siteUrl = 'https://duxer.com.ar';
           "@type": "OfferCatalog",
           "name": "Equipos de Lavandería Industrial",
           "itemListElement": [
-            { "@type": "Offer", "itemOffered": { "@type": "Product", "name": "Lavado Industrial" } },
-            { "@type": "Offer", "itemOffered": { "@type": "Product", "name": "Secado Inteligente" } },
-            { "@type": "Offer", "itemOffered": { "@type": "Product", "name": "Acabado Profesional" } },
-            { "@type": "Offer", "itemOffered": { "@type": "Product", "name": "Planchado Industrial" } }
+            {
+              "@type": "Offer",
+              "itemOffered": { "@type": "Product", "name": "Lavado Industrial" }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Product",
+                "name": "Secado Inteligente"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Product",
+                "name": "Acabado Profesional"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Product",
+                "name": "Planchado Industrial"
+              }
+            }
           ]
         }
       }
