@@ -45,8 +45,20 @@
     <div class="absolute inset-0 bg-black/55 pointer-events-none"></div>
   </div>
 
+  <!-- Map background -->
+  <div class="absolute inset-0 w-full h-full pointer-events-none" aria-hidden="true">
+    <img
+      src="/mapa.png"
+      alt=""
+      width="1400"
+      height="600"
+      loading="lazy"
+      class="w-full h-full object-cover opacity-10"
+    />
+  </div>
+
   <div
-    class="relative z-10 max-w-[1200px] mx-auto flex flex-col items-center text-center gap-8"
+    class="relative z-10 duxer-container flex flex-col items-center text-center gap-8"
   >
     <div class="flex items-center justify-center reveal">
       <img
@@ -61,12 +73,12 @@
 
     <div class="flex flex-col gap-3 reveal">
       <p
-        class="font-heading font-bold text-[28px] tracking-[0.04em] text-white uppercase leading-[1.4] m-0"
+        class="font-heading font-bold text-[clamp(1.8rem,4vw,2.8rem)] tracking-[0.04em] text-white uppercase leading-[1.4] m-0"
       >
         Todos nuestros equipos cuentan con garantía de 2 años.
       </p>
       <p
-        class="font-body text-[0.9rem] text-white leading-[1.75] max-w-105 mx-auto m-0"
+        class="font-body text-[clamp(0.95rem,1.5vw,1.15rem)] text-white leading-[1.75] max-w-105 mx-auto m-0"
       >
         Respaldamos la calidad, durabilidad y rendimiento de cada solución que
         ofrecemos.
