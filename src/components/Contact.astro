@@ -4,14 +4,14 @@ const siteKey = import.meta.env.PUBLIC_RECAPTCHA_SITE_KEY ?? "";
 
 <section
   id="contacto"
-  class="bg-paper py-[5.5rem] px-6"
+  class="bg-[#060606] py-[5.5rem] px-6"
   aria-label="Formulario de contacto"
 >
   <div class="max-w-[540px] mx-auto">
     <!-- Header -->
     <header class="text-center mb-[2.75rem] reveal">
       <h2
-        class="font-heading font-black text-[clamp(2.5rem,6vw,4.25rem)] leading-none text-[#0a0a0a] uppercase tracking-[0.04em]"
+        class="font-heading font-black text-[clamp(2.5rem,6vw,4.25rem)] leading-none text-white uppercase tracking-[0.04em]"
       >
         Contáctanos
       </h2>
@@ -27,7 +27,7 @@ const siteKey = import.meta.env.PUBLIC_RECAPTCHA_SITE_KEY ?? "";
       <div class="flex flex-col">
         <label
           for="email"
-          class="font-body text-[0.65rem] tracking-[0.15em] uppercase text-black/35 mb-[0.3rem]"
+          class="font-body text-[0.65rem] tracking-[0.15em] uppercase text-white/40 mb-[0.3rem]"
           >Email</label
         >
         <input
@@ -35,7 +35,7 @@ const siteKey = import.meta.env.PUBLIC_RECAPTCHA_SITE_KEY ?? "";
           id="email"
           name="email"
           placeholder="tu@email.com"
-          class="bg-transparent border-0 border-b border-black/20 py-[0.55rem] px-0 font-body text-[0.875rem] text-[#111] outline-none transition-[border-color] duration-200 w-full placeholder:text-black/30 placeholder:text-[0.85rem] focus:border-b-black/60"
+          class="bg-transparent border-0 border-b border-white/20 py-[0.55rem] px-0 font-body text-[0.875rem] text-white outline-none transition-[border-color] duration-200 w-full placeholder:text-white/30 placeholder:text-[0.85rem] focus:border-b-white/60"
           autocomplete="email"
           required
           aria-required="true"
@@ -47,7 +47,7 @@ const siteKey = import.meta.env.PUBLIC_RECAPTCHA_SITE_KEY ?? "";
       <div class="flex flex-col">
         <label
           for="name"
-          class="font-body text-[0.65rem] tracking-[0.15em] uppercase text-black/35 mb-[0.3rem]"
+          class="font-body text-[0.65rem] tracking-[0.15em] uppercase text-white/40 mb-[0.3rem]"
           >Nombre</label
         >
         <input
@@ -55,7 +55,7 @@ const siteKey = import.meta.env.PUBLIC_RECAPTCHA_SITE_KEY ?? "";
           id="name"
           name="name"
           placeholder="Tu nombre completo"
-          class="bg-transparent border-0 border-b border-black/20 py-[0.55rem] px-0 font-body text-[0.875rem] text-[#111] outline-none transition-[border-color] duration-200 w-full placeholder:text-black/30 placeholder:text-[0.85rem] focus:border-b-black/60"
+          class="bg-transparent border-0 border-b border-white/20 py-[0.55rem] px-0 font-body text-[0.875rem] text-white outline-none transition-[border-color] duration-200 w-full placeholder:text-white/30 placeholder:text-[0.85rem] focus:border-b-white/60"
           autocomplete="name"
           required
           aria-required="true"
@@ -67,7 +67,7 @@ const siteKey = import.meta.env.PUBLIC_RECAPTCHA_SITE_KEY ?? "";
       <div class="flex flex-col">
         <label
           for="company"
-          class="font-body text-[0.65rem] tracking-[0.15em] uppercase text-black/35 mb-[0.3rem]"
+          class="font-body text-[0.65rem] tracking-[0.15em] uppercase text-white/40 mb-[0.3rem]"
           >Nombre de la compañía</label
         >
         <input
@@ -75,7 +75,7 @@ const siteKey = import.meta.env.PUBLIC_RECAPTCHA_SITE_KEY ?? "";
           id="company"
           name="company"
           placeholder="Tu empresa"
-          class="bg-transparent border-0 border-b border-black/20 py-[0.55rem] px-0 font-body text-[0.875rem] text-[#111] outline-none transition-[border-color] duration-200 w-full placeholder:text-black/30 placeholder:text-[0.85rem] focus:border-b-black/60"
+          class="bg-transparent border-0 border-b border-white/20 py-[0.55rem] px-0 font-body text-[0.875rem] text-white outline-none transition-[border-color] duration-200 w-full placeholder:text-white/30 placeholder:text-[0.85rem] focus:border-b-white/60"
           autocomplete="organization"
           aria-describedby="company-err"
         />
@@ -86,20 +86,24 @@ const siteKey = import.meta.env.PUBLIC_RECAPTCHA_SITE_KEY ?? "";
       <div class="flex flex-col">
         <label
           for="message"
-          class="font-body text-[0.65rem] tracking-[0.15em] uppercase text-black/35 mb-[0.3rem]"
+          class="font-body text-[0.65rem] tracking-[0.15em] uppercase text-white/40 mb-[0.3rem]"
           >Mensaje</label
         >
         <textarea
           id="message"
           name="message"
           placeholder="Cuéntanos sobre tu proyecto o necesidad..."
-          class="bg-transparent border-0 border-b border-black/20 py-[0.55rem] px-0 font-body text-[0.875rem] text-[#111] outline-none transition-[border-color] duration-200 w-full placeholder:text-black/30 placeholder:text-[0.85rem] focus:border-b-black/60 resize-none min-h-[80px]"
-          rows="4"
+          class="bg-transparent border-0 border-b border-white/20 py-[0.55rem] px-0 font-body text-[0.875rem] text-white outline-none transition-[border-color] duration-200 w-full placeholder:text-white/30 placeholder:text-[0.85rem] focus:border-b-white/60 resize-none"
+          style="field-sizing: content; min-height: 2.5rem;"
+          maxlength="200"
+          rows="1"
           required
           aria-required="true"
-          aria-describedby="message-err"></textarea>
-        <p id="message-err" class="field-err" role="alert" aria-live="polite">
-        </p>
+          aria-describedby="message-err message-count"></textarea>
+        <div class="flex justify-between items-center mt-1">
+          <p id="message-err" class="field-err" role="alert" aria-live="polite"></p>
+          <span id="message-count" class="font-body text-[0.7rem] text-white/30 ml-auto" aria-live="polite">0/200</span>
+        </div>
       </div>
 
       <input type="hidden" id="recaptcha-token" name="recaptchaToken" />
@@ -110,17 +114,17 @@ const siteKey = import.meta.env.PUBLIC_RECAPTCHA_SITE_KEY ?? "";
       <button
         type="submit"
         id="submit-btn"
-        class="font-heading font-bold text-[0.9rem] tracking-[0.12em] uppercase text-white bg-[#111] border border-white/[0.08] py-4 px-8 cursor-pointer w-full transition-[background,transform] duration-200 rounded-[2px] enabled:hover:bg-[#222] enabled:hover:-translate-y-px disabled:opacity-60 disabled:cursor-not-allowed"
+        class="font-heading font-bold text-[0.9rem] tracking-[0.12em] uppercase text-[#060606] bg-gold border border-gold/60 py-4 px-8 cursor-pointer w-full transition-[background,transform] duration-200 rounded-[2px] enabled:hover:bg-gold/90 enabled:hover:-translate-y-px disabled:opacity-60 disabled:cursor-not-allowed"
       >
         Solicitar información
       </button>
 
       <p
-        class="font-body text-[0.68rem] text-black/[0.28] text-center leading-normal"
+        class="font-body text-[0.68rem] text-white/[0.28] text-center leading-normal"
       >
         Al enviar aceptas nuestra <a
           href="/politica-de-privacidad"
-          class="text-black/45 underline">Política de Privacidad</a
+          class="text-white/45 underline">Política de Privacidad</a
         >. Sitio protegido por reCAPTCHA.
       </p>
     </form>
@@ -137,6 +141,15 @@ const siteKey = import.meta.env.PUBLIC_RECAPTCHA_SITE_KEY ?? "";
   const form = document.getElementById("contact-form");
   const submitBtn = document.getElementById("submit-btn");
   const formMsg = document.getElementById("form-msg");
+  const messageInput = document.getElementById("message");
+  const messageCount = document.getElementById("message-count");
+
+  // Character counter
+  messageInput?.addEventListener("input", () => {
+    const len = messageInput.value.length;
+    messageCount.textContent = len + "/200";
+    messageCount.style.color = len >= 200 ? "#c0392b" : "";
+  });
 
   function showErr(id, msg) {
     const el = document.getElementById(id + "-err");
@@ -165,6 +178,9 @@ const siteKey = import.meta.env.PUBLIC_RECAPTCHA_SITE_KEY ?? "";
     }
     if (d.message.length < 10) {
       showErr("message", "Mínimo 10 caracteres.");
+      ok = false;
+    } else if (d.message.length > 200) {
+      showErr("message", "Máximo 200 caracteres.");
       ok = false;
     }
     return ok;
@@ -228,6 +244,10 @@ const siteKey = import.meta.env.PUBLIC_RECAPTCHA_SITE_KEY ?? "";
 </script>
 
 <style>
+  :global(.grecaptcha-badge) {
+    display: none !important;
+  }
+
   .field-err {
     font-family: "Barlow", sans-serif;
     font-size: 0.72rem;
@@ -254,14 +274,14 @@ const siteKey = import.meta.env.PUBLIC_RECAPTCHA_SITE_KEY ?? "";
   }
 
   .form-msg.success {
-    background: rgba(39, 174, 96, 0.1);
+    background: rgba(39, 174, 96, 0.12);
     border: 1px solid rgba(39, 174, 96, 0.3);
-    color: #1a6e3c;
+    color: #5dd39e;
   }
 
   .form-msg.error {
-    background: rgba(231, 76, 60, 0.08);
+    background: rgba(231, 76, 60, 0.1);
     border: 1px solid rgba(231, 76, 60, 0.25);
-    color: #922b21;
+    color: #e74c3c;
   }
 </style>

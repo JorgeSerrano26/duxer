@@ -8,7 +8,7 @@
   aria-label="Sección principal"
 >
   <div
-    class="absolute inset-0 bg-[url('/hero.jpg')] bg-cover bg-center opacity-60"
+    class="absolute inset-0 bg-[url('/hero.webp')] bg-cover bg-center opacity-60"
     aria-hidden="true"
   >
   </div>
@@ -24,13 +24,21 @@
   </div>
 
   <div class="relative z-[3] w-full duxer-container pt-36 pb-20">
+    <!-- Guarantee badge — top right, hidden below 1200px -->
+    <img
+      src="/garantia.webp"
+      alt="Garantía 2 años DUXER"
+      class="absolute top-36 right-6 w-[200px] h-auto object-contain mix-blend-screen hidden min-[1200px]:block"
+      loading="eager"
+    />
+
     <!-- Collage image — absolute bottom right on desktop >=1200px -->
     <div
       class="absolute right-6 bottom-20 w-[55%] pointer-events-none hidden min-[1200px]:block"
       aria-hidden="true"
     >
       <img
-        src="/colage.png"
+        src="/colage.webp"
         alt=""
         class="w-full h-auto object-contain"
         loading="eager"
@@ -80,7 +88,7 @@
     <!-- Collage image below actions for <1200px -->
     <div class="block min-[1200px]:hidden mt-8">
       <img
-        src="/colage.png"
+        src="/colage.webp"
         alt="Collage de equipos industriales de lavandería"
         class="w-full max-w-250 mx-auto h-auto object-contain"
         loading="eager"
